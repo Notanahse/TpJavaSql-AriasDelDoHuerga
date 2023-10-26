@@ -127,6 +127,7 @@ margin: 2%;
 .imagendisplay{
 display:inline-block;
 width:20%;
+    border-radius: 30px;
 background-color:white;
 margin-right: 5%;
     margin-left: 2%;
@@ -135,6 +136,6 @@ margin-right: 5%;
     width: 26%;
     height: 40%;
     padding-bottom: 14%;
-    border-radius: 15px;
+    
 
 }
