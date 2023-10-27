@@ -7,7 +7,7 @@
 body{
     margin: 0px;
     background-color:rgb(211, 183, 134); 
-    margin-bottom: 1%;
+    
 
 }
 #logo{
@@ -38,12 +38,10 @@ p{
 
 .imagen{
     display: inline-block;
-    margin-right: 23px;
-    margin-left: 45px;
-    margin-top: 1px;
-    padding-top:5px ;
-    width: 350px;
-    height: 300px;
+    margin-left:2%;
+    width: 75%;
+    height: 80%;
+    margin-top:-1%;
 }
 .elemento{
     height: 100px;
@@ -99,20 +97,19 @@ p{
 
 }
 .finishline{
-    position: absolute;
+    position:static;
     bottom: 0%;
     width: 100%;
     margin-bottom: 0%;
     background-color: black;
    color:black;
     display:flex;
-padding-bottom: 20px;
+padding-bottom: 1.3%;
 height: 5%;
    
 }
 .finishl{
     color: white;
-    margin-bottom:0px;
     margin-right: 35px;
     margin-left: 10px;
 }
@@ -122,16 +119,17 @@ a{
 }
 
 #TablaDatos{
-    margin-right: 5%;
-    margin-left: 65%;
+    border-radius:15px;
     margin-bottom: 10%;
     margin-top: 5%;
     background-color:rgb(207, 174, 117); 
     color: white;
-    width: 20%;
-    height: 50%;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(255,255,255,0.8);
 }
 .datos{
-    width: 40%;
+    width: 20%;
+float:right;
     
 }
