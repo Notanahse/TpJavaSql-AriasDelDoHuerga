@@ -1,0 +1,99 @@
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.4.js"integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+ <link rel="stylesheet" type="text/css"   href="./deliveryPG .css">
+</head>
+<body>
+  <nav id="navBar">
+    <a href="paginaws (1) (1).html">
+      <img id="Logo" src="./logoo.png">
+    </a>   
+<p id="Menu"><a href=""><div class="contenedor" id="derecha">
+
+    <button class="dropdown"><a href="ffvlvknvklhvlhj.html">Menú</a></button>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Pizzas</a>
+        <a class="dropdown-item" href="#">Pastas</a>
+        <a class="dropdown-item" href="#">Carne</a>
+        <a class="dropdown-item" href="#">Otros</a>
+    </div>
+</div> </a></p>
+
+<p id="Lugares"><a href=""><div class="contenedor" id="derecha">
+  <button class="dropdown"><a href="Lugares.html">Lugares</button>
+  <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Belgrano</a>
+      <a class="dropdown-item" href="#">Palermo</a>
+      <a class="dropdown-item" href="#">Pilar</a>
+      <a class="dropdown-item" href="#">Nuñez</a>
+      <a class="dropdown-item" href="#">Coglhan</a> 
+      <a class="dropdown-item" href="#">Urquiza</a> 
+  </div>
+
+</div> </a></p>
+<p id="Reservas"><a href=""></a><div class="contenedor" id="derecha">
+  <button class="dropdown"><a href="Reservas  (1).html"> Reservas</a></button>
+</div></p>
+
+<p id="Delivery"><a href=""></a><div class="contenedor" id="derecha">
+  <button class="dropdown"><a href="delivrypizzagaucha (1).html">Delivery</a></button>
+  </div>
+
+</div> </p>
+<p id="Soporte"><a href=""></a><div class="contenedor" id="derecha">
+  <button class="dropdown"><a href="soportePiazzaGaucha (1)  (1).html">Soporte</a></button>
+</div></p>
+</nav>
+   
+<div>
+  <img src="" >
+</div>
+<form action="Delivery.php">
+<table id="TablaDatos">
+  <tr><td>
+    <input required placeholder="Introduzca su Nombre" name="Nombre">
+  </td></tr>
+<tr><td><input required placeholder="Introduzca su direccion" name="Direccion"></td></tr>
+<tr><td><input required placeholder="Introduzca su Telefono" name="Numero"></td></tr>
+<tr><td><input required placeholder="Introduzca su Orden" name="Orden"></td></tr>
+<tr><td><select required>
+      <option>Eliga su metodo de pago</option>
+      <option>Efectivo</option>
+      <option>Transferecia</option>
+      <option>Mercado Pago</option>
+      <option>Tarjeta</option>
+    </select>
+    <!-- nos falta hacer que estos se desplieguen si y solo si el metodo de pago es tajeta
+      //// si es mercado de pago q se muestre donde tiene q envier la plata 
+      /// etc   
+    <input required placeholder="numero de tarjeta" >
+    <input required placeholder="Titular de tarjeta" >
+    <input required placeholder="codigo de seguridad" >
+    <input required placeholder="deni titular de la tarjeta" >
+  -->
+  <button type="submit" class="enviar" onclick="mandarForm()">Enviar</button>
+  </td></tr>
+</table>
+</form>
+
+<footer class="finishline">
+      <h3 class="finishl">En todas nustras redes como:  PiazzaGaucha</h3>
+      <h3 class="finishl"><a href="">Trabaja con nosotros</a></h3>
+      <h3 class="finishl">Telefono: +54 9 011 1345626</h3>
+      <h3 class="finishl">Mail: PiazzaGaucha@gmal.com </h3>
+</footer>
+</body>
+<script>
+  function mandarForm(){
+ $ajax({
+  method:"get",
+url:"Soporte.php",
+data:{
+  nombre: $("#Nombre").val(), mail: $("#Mail").val(),
+}})
+  .done(function(resultado){
+  console.log(resultado)
+});
+  }
+</script>
+</html>
