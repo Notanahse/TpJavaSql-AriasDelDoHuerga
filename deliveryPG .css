@@ -127,6 +127,9 @@ a{
 float:right;
     
 }
+.tdt{
+    height:30%;
+}
 @media(max-width:400px) and (max-height: 700px) {
     .body{
         display:block;
