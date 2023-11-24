@@ -5,70 +5,75 @@
 </head>
 <body>
   <nav id="navBar">
-    <a href="./index.html">
-      <img id="Logo" src="./logo (1).png">
-    </a>   
-<p id="Menu"><a href=""><div class="contenedor" id="derecha">
-
-    <button class="dropdown"><a href="./Platos.html">Menú</a></button>
-    <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">Pizzas</a>
-        <a class="dropdown-item" href="#">Pastas</a>
-        <a class="dropdown-item" href="#">Carne</a>
-        <a class="dropdown-item" href="#">Otros</a>
+    <a href="../Principal/index.html">
+      <img id="Logo" src="../Logos/logo.png">
+     </a>
+  <p id="Menu"><a href=""><div class="contenedor" id="derecha">
+  
+      <button class="dropdown"><a href="../Platos/Platos.html">Menú</a></button>
+  
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="../Platos/Platos.html#pizzas">Pizzas</a>
+        <a class="dropdown-item" href="../Platos/Platos.html#pastas">Pastas</a>
+        <a class="dropdown-item" href="../Platos/Platos.html#carne">Carne</a>
+        <a class="dropdown-item" href="../Platos/Platos.html#otros">Otros</a>
+  
     </div>
-</div> </a></p>
-
-<p id="Lugares"><a href=""><div class="contenedor" id="derecha">
-  <button class="dropdown"><a href="./Lugares.html">Lugares</button>
-  <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Belgrano</a>
-      <a class="dropdown-item" href="#">Palermo</a>
-      <a class="dropdown-item" href="#">Pilar</a>
-      <a class="dropdown-item" href="#">Nuñez</a>
-      <a class="dropdown-item" href="#">Coglhan</a> 
-      <a class="dropdown-item" href="#">Urquiza</a> 
-  </div>
-
-</div> </a></p>
-<p id="Reservas"><a href=""></a><div class="contenedor" id="derecha">
-  <button class="dropdown"><a href="./Reservas.html"> Reservas</a></button>
-</div></p>
-
-<p id="Delivery"><a href=""></a><div class="contenedor" id="derecha">
-  <button class="dropdown"><a href="./delivrypizzagaucha .html">Delivery</a></button>
-  </div>
-
-</div> </p>
-<p id="Soporte"><a href=""></a><div class="contenedor" id="derecha">
-  <button class="dropdown"><a href="./soportePiazzaGaucha .html">Soporte</a></button>
-</div></p>
+  </div> </a></p>
+  
+  <p id="Lugares"><a href=""><div class="contenedor" id="derecha">
+    <button class="dropdown"><a href="../Lugares/Lugares.html">Lugares</button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="../Lugares/Lugares.html#belgrano">Belgrano</a>
+      <a class="dropdown-item" href="../Lugares/Lugares.html#palermo">Palermo</a>
+      <a class="dropdown-item" href="../Lugares/Lugares.html#pilar">Pilar</a>
+      <a class="dropdown-item" href="../Lugares/Lugares.html">Nuñez</a>
+      <a class="dropdown-item" href="../Lugares/Lugares.html#colghan">Colghan</a> 
+      <a class="dropdown-item" href="../Lugares/Lugares.html">Urquiza</a> 
+    </div>
+  </div> </a></p>
+  <p id="Reservas"><a ></a><div class="contenedor" id="derecha">
+    <button  class="dropdown"><a href="../Reservas/Reservas.html"> Reservas</a></button>  
+  </div></p>
+  <p id="Delivery"><a href=""></a><div class="contenedor" id="derecha">
+  
+    <button class="dropdown"><a href="../Delivery/delivrypizzagaucha .html">Delivery</a></button>
+    </div>
+  </div> </p>
+  <p id="Soporte"><a href=""></a><div class="contenedor" id="derecha">
+  
+    <button class="dropdown"><a href="../Soporte/soportePiazzaGaucha .html">Soporte</a></button>
+  
+  </div></p>
 </nav>
    
 <div>
 
 <form action="Delivery.php" class="datos">
-<table id="TablaDatos">
-  <tr class="trt"><td class="tdt">
-    <input required placeholder="Introduzca su Nombre" name="Nombre">
-  </td></tr>
+<table id="TablaDatos"class="datosTarjeta"  >
+  <tr class="trt"><td class="tdt"><input required placeholder="Introduzca su Nombre" name="Nombre">
+</td></tr>
 <tr class="trt"><td class="tdt"><input required placeholder="Introduzca su direccion" name="Direccion"></td></tr>
 <tr class="trt"><td class="tdt"><input required placeholder="Introduzca su Telefono" name="Numero"></td></tr>
 <tr class="trt"><td class="tdt"><input required placeholder="Introduzca su Orden" name="Orden"></td></tr>
-<tr class="trt"><td class="tdt"><select required>
+<tr class="trt"><td class="tdt"><select id="select" required>
       <option>Eliga su metodo de pago</option>
       <option>Efectivo</option>
       <option>Mercado Pago</option>
-      <option>Tarjeta</option>
+      <option >Tarjeta</option>
     </select>
     <!-- nos falta hacer que estos se desplieguen si y solo si el metodo de pago es tajeta
       //// si es mercado de pago q se muestre donde tiene q envier la plata 
       /// etc   
-    <input required placeholder="numero de tarjeta" >
-    <input required placeholder="Titular de tarjeta" >
-    <input required placeholder="codigo de seguridad" >
-    <input required placeholder="deni titular de la tarjeta" >
-  -->
+  -->   
+  
+  <table id="TablaDatosTarjeta" class="datosTarjeta2"> 
+    <tr class="trt"><td class="tdt"><input required placeholder="Nombre titular" name="Nombre titular"></td></tr>
+    <tr class="trt"><td class="tdt"><input required placeholder="Número tarjeta" name="Número tarjeta"></td></tr>
+    <tr class="trt"><td class="tdt"><input required placeholder="Código de seguridad" name="Código de seguridad"></td></tr>
+    <tr class="trt"><td class="tdt"><input required placeholder="Fecha vencimiento" name="Fecha de venimiento"></td></tr>
+    </table>
+
   <button type="submit" class="enviar" onclick="mandarForm()">Enviar</button>
   </td></tr>
 </table>
@@ -94,5 +99,15 @@ data:{
   console.log(resultado)
 });
   }
+
+  var opcion=document.getElementById("select");
+  var contenedor = document.getElementById("TablaDatosTarjeta");
+  opcion.addEventListener("click",function(){
+    if(opcion.value=="Tarjeta"){
+      contenedor.style.display="block";
+    }else{
+      contenedor.style.display="none";
+    }
+  })
 </script>
 </html>
