@@ -59,8 +59,8 @@ p{
     display: flex;  
     border:none;
     margin-left: 10%;
-    border: solid 1px;
-   background-color: rgb(252, 222, 183);
+   
+   
    width: 80%;
 }
 .LugaresImg{
@@ -70,11 +70,15 @@ margin-right: 2%;
 
 }
 .LuagaresTXT{
-    margin-top:3%;
-   display: inline-block;    
+    background-color: rgb(252, 222, 183);
+    border: black solid 1px;
+    margin-top:0%;
+   display: relative;    
     width:41%;
     text-align: justify;
     font-size: 130%;
+     height: 300px;
+    width:50%;
    
 
 }
