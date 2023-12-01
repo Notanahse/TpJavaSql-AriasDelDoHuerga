@@ -14,25 +14,24 @@ body{
     width: 4.5%;
     margin-left: 00.5%;
 }
-
+ 
 p:hover{
     background-color:rgb(180, 54, 54);
 }
 a:hover{
 color: rgb(238, 101, 113);
-
-} 
-
+ 
+}
+ 
 p{
     display: inline-block;
     margin-right: 23px;
     margin-left: 25px;
     margin-top: 1px;
     padding-top:5px ;
-  
     background-color:rgb(202, 90, 90);
-} 
-
+}
+ 
 .imagen{
     display: inline-block;
     margin-right: 23px;
@@ -53,21 +52,20 @@ p{
     height: 300px;
     text-align: justify;
 }
-
+ 
 .Lugares{ 
     margin-top: 100px;
     display: flex;  
     border:none;
     margin-left: 10%;
-   
-   
+
    width: 80%;
 }
 .LugaresImg{
     width: 45%;
     height: 300px;
 margin-right: 2%;
-
+ 
 }
 .LuagaresTXT{
     background-color: rgb(252, 222, 183);
@@ -75,12 +73,12 @@ margin-right: 2%;
     margin-top:0%;
    display: relative;    
     width:41%;
-    text-align: justify;
     font-size: 130%;
      height: 300px;
     width:50%;
-   
+    padding-left:2%;
 
+ 
 }
 .elemento{
     height: 100px;
@@ -91,16 +89,14 @@ margin-right: 2%;
     border-color:  rgb(148, 9, 21);
 }
 .contenedor{
-    
     position: relative;
     display: inline-block;
     bottom:35px
-    
 
+ 
 }
 .contenedor:hover .dropdown-menu {
     display: block;
-    
 }
 .dropdown:hover{
     color:rgb(236, 229, 229);
@@ -133,7 +129,7 @@ margin-right: 2%;
     text-decoration: none;
     color:rgb(161, 22, 33);
     padding:10px 20px;
-
+ 
 }
 .finishline{
     margin-top: 5%;
@@ -141,7 +137,6 @@ margin-right: 2%;
    color:black;
     display:flex;
 padding-bottom: 20px;
-   
 }
 .finishl{
     color: white;
@@ -156,5 +151,4 @@ a{
 .titulos{
     font-size: 251%;
     text-align:center;
-    
 }
