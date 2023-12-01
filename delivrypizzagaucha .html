@@ -1,83 +1,94 @@
 <html>
 <head>
-  <script src="https://code.jquery.com/jquery-3.6.4.js"integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
- <link rel="stylesheet" type="text/css"   href="./deliveryPG .css">
+  <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+ <link rel="stylesheet" type="text/css"   href="./deliveryPG  1.css">
 </head>
 <body>
   <nav id="navBar">
-    <a href="./index.html">
-      <img id="Logo" src="./logo (1).png">
+    <a href="../Principal/index.html">
+      <img id="Logo" src="../Logos/LogoManualBlanco.png">
      </a>
   <p id="Menu"><a href=""><div class="contenedor" id="derecha">
   
-      <button class="dropdown"><a href="./Platos.html">Menú</a></button>
+      <button class="dropdown"><a href="../Platos/Platos.php">Menú</a></button>
   
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="./Platos.html#pizzas">Pizzas</a>
-        <a class="dropdown-item" href="./Platos.html#pastas">Pastas</a>
-        <a class="dropdown-item" href="./Platos.html#carne">Carne</a>
-        <a class="dropdown-item" href="./Platos.html#otros">Otros</a>
+        <a class="dropdown-item" href="../Platos/Platos.php#pizzas">Pizzas</a>
+        <a class="dropdown-item" href="../Platos/Platos.php#pastas">Pastas</a>
+        <a class="dropdown-item" href="../Platos/Platos.php#carne">Carne</a>
+        <a class="dropdown-item" href="../Platos/Platos.php#otros">Otros</a>
   
     </div>
   </div> </a></p>
   
   <p id="Lugares"><a href=""><div class="contenedor" id="derecha">
-    <button class="dropdown"><a href="./Lugares.html">Lugares</button>
-     <div class="dropdown-menu">
-      <a class="dropdown-item" href="./Lugares.html#belgrano">Belgrano</a>
-      <a class="dropdown-item" href="./Lugares.html#palermo">Palermo</a>
-      <a class="dropdown-item" href="./Lugares.html#pilar">Pilar</a>
-      <a class="dropdown-item" href="./Lugares.html#nuñez">Nuñez</a>
-      <a class="dropdown-item" href="./Lugares.html#colghan">Colghan</a> 
-      <a class="dropdown-item" href="./Lugares.html#urquiza">Urquiza</a> 
+    <button class="dropdown"><a href="../Lugares/Lugares.html">Lugares</button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="../Lugares/Lugares.html#belgrano">Belgrano</a>
+      <a class="dropdown-item" href="../Lugares/Lugares.html#palermo">Palermo</a>
+      <a class="dropdown-item" href="../Lugares/Lugares.html#pilar">Pilar</a>
+      <a class="dropdown-item" href="../Lugares/Lugares.html">Nuñez</a>
+      <a class="dropdown-item" href="../Lugares/Lugares.html#colghan">Colghan</a> 
+      <a class="dropdown-item" href="../Lugares/Lugares.html">Urquiza</a> 
     </div>
   </div> </a></p>
   <p id="Reservas"><a ></a><div class="contenedor" id="derecha">
-    <button  class="dropdown"><a href="./Reservas.html"> Reservas</a></button>  
+    <button  class="dropdown"><a href="../Reservas/Reservas.html"> Reservas</a></button>  
   </div></p>
   <p id="Delivery"><a href=""></a><div class="contenedor" id="derecha">
   
-    <button class="dropdown"><a href="./delivrypizzagaucha .html">Delivery</a></button>
+    <button class="dropdown"><a href="../Delivery/delivrypizzagaucha .html">Delivery</a></button>
     </div>
   </div> </p>
   <p id="Soporte"><a href=""></a><div class="contenedor" id="derecha">
   
-    <button class="dropdown"><a href="./soportePiazzaGaucha .html">Soporte</a></button>
+    <button class="dropdown"><a href="../Soporte/soportePiazzaGaucha .html">Soporte</a></button>
   
   </div></p>
 </nav>
    
 <div>
+  <form action="Delivery.php" class="datos">
+    <table id="TablaDatos" class="datosTarjeta">
+      <tr class="trt">
+        <td class="tdt"><input required placeholder="Introduzca su Nombre" name="Nombre"></td>
+      </tr>
+      <tr class="trt">
+        <td class="tdt"><input required placeholder="Introduzca su Apellido" name="Apellido"></td>
+      </tr>
+      <tr class="trt">
+        <td class="tdt"><input required placeholder="Introduzca su direccion" name="Direccion"></td>
+      </tr>
+      <tr class="trt">
+        <td class="tdt"><input required placeholder="Introduzca su Telefono" name="Numero"></td>
+      </tr>
+      <tr class="trt">
+        <td class="tdt">
+            <input required placeholder="Lista de Platos (separados por coma)" name="Platos">
+        </td>
+    </tr>
+<tr class="trt">
+  <td class="tdt">
+      <select id="select" required name="select">
+          <option>Elige tu método de pago</option>
+          <option>Efectivo</option>
+          <option>Mercado Pago</option>
+          <option>Tarjeta</option>
+      </select>
 
-<form action="Delivery.php" class="datos">
-<table id="TablaDatos"class="datosTarjeta"  >
-  <tr class="trt"><td class="tdt"><input required placeholder="Introduzca su Nombre" name="Nombre">
-</td></tr>
-<tr class="trt"><td class="tdt"><input required placeholder="Introduzca su direccion" name="Direccion"></td></tr>
-<tr class="trt"><td class="tdt"><input required placeholder="Introduzca su Telefono" name="Numero"></td></tr>
-<tr class="trt"><td class="tdt"><input required placeholder="Introduzca su Orden" name="Orden"></td></tr>
-<tr class="trt"><td class="tdt"><select id="select" required>
-      <option>Eliga su metodo de pago</option>
-      <option>Efectivo</option>
-      <option>Mercado Pago</option>
-      <option >Tarjeta</option>
-    </select>
-    <!-- nos falta hacer que estos se desplieguen si y solo si el metodo de pago es tajeta
-      //// si es mercado de pago q se muestre donde tiene q envier la plata 
-      /// etc   
-  -->   
-  
-  <table id="TablaDatosTarjeta" class="datosTarjeta2"> 
-    <tr class="trt"><td class="tdt"><input required placeholder="Nombre titular" name="Nombre titular"></td></tr>
-    <tr class="trt"><td class="tdt"><input required placeholder="Número tarjeta" name="Número tarjeta"></td></tr>
-    <tr class="trt"><td class="tdt"><input required placeholder="Código de seguridad" name="Código de seguridad"></td></tr>
-    <tr class="trt"><td class="tdt"><input required placeholder="Fecha vencimiento" name="Fecha de venimiento"></td></tr>
+          <table id="TablaDatosTarjeta" class="datosTarjeta2">
+            <tr class="trt"><td class="tdt"><input required placeholder="Nombre titular" name="Nombre titular"></td></tr>
+            <tr class="trt"><td class="tdt"><input required placeholder="Número tarjeta" name="Número tarjeta"></td></tr>
+            <tr class="trt"><td class="tdt"><input required placeholder="Código de seguridad" name="Código de seguridad"></td></tr>
+            <tr class="trt"><td class="tdt"><input required placeholder="Fecha vencimiento" name="Fecha de venimiento"></td></tr>
+          </table>
+
+          <button type="submit" class="enviar" onclick="mandarForm(event)">Enviar</button>
+        </td>
+      </tr>
     </table>
-
-  <button type="submit" class="enviar" onclick="mandarForm()">Enviar</button>
-  </td></tr>
-</table>
-</form>
+  </form>
 </div>
   
 <footer class="finishline">
@@ -86,28 +97,55 @@
       <h3 class="finishl">Telefono: +54 9 011 1345626</h3>
       <h3 class="finishl">Mail: PiazzaGaucha@gmal.com </h3>
 </footer>
-</body>
-<script>
-  function mandarForm(){
- $ajax({
-  method:"get",
-url:"Soporte.php",
-data:{
-  nombre: $("#Nombre").val(), mail: $("#Mail").val(),
-}})
-  .done(function(resultado){
-  console.log(resultado)
-});
-  }
 
-  var opcion=document.getElementById("select");
-  var contenedor = document.getElementById("TablaDatosTarjeta");
-  opcion.addEventListener("click",function(){
-    if(opcion.value=="Tarjeta"){
-      contenedor.style.display="block";
-    }else{
-      contenedor.style.display="none";
+<script>
+  
+    function mandarForm(event) {
+        event.preventDefault();
+ 
+        
+        var data = {
+            Nombre: $("input[name='Nombre']").val(),
+            Apellido:$("input[name='Apellido']").val(),
+            Direccion: $("input[name='Direccion']").val(),
+            Numero: $("input[name='Numero']").val(),
+            Platos: $("input[name='Platos']").val(),
+            MetodoPago: $("#select").val(),
+        };
+ 
+        
+        if (data.MetodoPago === "Tarjeta") {
+            data.NombreTitular = $("input[name='Nombre titular']").val();
+            data.NumeroTarjeta = $("input[name='Número tarjeta']").val();
+            data.CodigoSeguridad = $("input[name='Código de seguridad']").val();
+            data.FechaVencimiento = $("input[name='Fecha de venimiento']").val();
+        }
+ 
+        
+        $.ajax({
+            method: "get",
+            url: "Delivery.php",
+            data: data
+        })
+        .done(function (resultado) {
+            console.log(resultado);
+        });
     }
-  })
+ 
+    var opcion = $("#select");
+    var contenedor = $("#TablaDatosTarjeta");
+ 
+    opcion.change(function () {
+        if (opcion.val() == "Tarjeta") {
+            contenedor.css("display", "block");
+        } else {
+            contenedor.css("display", "none");
+        }
+    });
+ 
+    
+    $(".enviar").on("click", mandarForm);
+
 </script>
+</body>
 </html>
