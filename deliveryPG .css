@@ -112,6 +112,7 @@ a{
 }
 
 #TablaDatos{
+    margin-left:-10%;
     position:relative;
     border-radius:15px;
     margin-bottom: 10%;
