@@ -5,53 +5,57 @@
 </head>
 <body>
     <nav id="navBar">
-        <a href="./index.html">
-            <img id="Logo" src="logo (1).png">
-           </a>
+      <a href="../Principal/index.html">
+        <img id="Logo" src="../Logos/LogoManualBlanco.png">
+       </a>
     <p id="Menu"><a href=""><div class="contenedor" id="derecha">
-        <button class="dropdown"><a href="./Platos.html">Menú</a></button>
-         <div class="dropdown-menu">
-        <a class="dropdown-item" href="./Platos.html#pizzas">Pizzas</a>
-        <a class="dropdown-item" href="./Platos.html#pastas">Pastas</a>
-        <a class="dropdown-item" href="./Platos.html#carne">Carne</a>
-        <a class="dropdown-item" href="./Platos.html#otros">Otros</a>
-  
-    </div>
-    </div> </a></p>
     
-    <p id="Lugares"><p id="Lugares"><a href=""><div class="contenedor" id="derecha">
-        <button class="dropdown"><a href="./Lugares.html">Lugares</button>
-      <div class="dropdown-menu">
-      <a class="dropdown-item" href="./Lugares.html#belgrano">Belgrano</a>
-      <a class="dropdown-item" href="./Lugares.html#palermo">Palermo</a>
-      <a class="dropdown-item" href="./Lugares.html#pilar">Pilar</a>
-      <a class="dropdown-item" href="./Lugares.html#nuñez">Nuñez</a>
-      <a class="dropdown-item" href="./Lugares.html#colghan">Colghan</a> 
-      <a class="dropdown-item" href="./Lugares.html#urquiza">Urquiza</a> 
-    </div>
+        <button class="dropdown"><a href="../Platos/Platos.php">Menú</a></button>
     
-    </div> </a></p>
-    <p id="Reservas"><a href=""></a><div class="contenedor" id="derecha">
-      <button class="dropdown"><a href="./Reservas.html"> Reservas</a></button>
-    </div></p>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="../Platos/Platos.php#pizzas">Pizzas</a>
+          <a class="dropdown-item" href="../Platos/Platos.php#pastas">Pastas</a>
+          <a class="dropdown-item" href="../Platos/Platos.php#carne">Carne</a>
+          <a class="dropdown-item" href="../Platos/Platos.php#otros">Otros</a>
     
-    <p id="Delivery"><a href=""></a><div class="contenedor" id="derecha">
-      <button class="dropdown"><a href="./delivrypizzagaucha .html">Delivery</a></button>
       </div>
+    </div> </a></p>
     
+    <p id="Lugares"><a href=""><div class="contenedor" id="derecha">
+      <button class="dropdown"><a href="../Lugares/Lugares.html">Lugares</button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="../Lugares/Lugares.html#belgrano">Belgrano</a>
+        <a class="dropdown-item" href="../Lugares/Lugares.html#palermo">Palermo</a>
+        <a class="dropdown-item" href="../Lugares/Lugares.html#pilar">Pilar</a>
+        <a class="dropdown-item" href="../Lugares/Lugares.html">Nuñez</a>
+        <a class="dropdown-item" href="../Lugares/Lugares.html#colghan">Colghan</a> 
+        <a class="dropdown-item" href="../Lugares/Lugares.html">Urquiza</a> 
+      </div>
+    </div> </a></p>
+    <p id="Reservas"><a ></a><div class="contenedor" id="derecha">
+      <button  class="dropdown"><a href="../Reservas/Reservas.html"> Reservas</a></button>  
+    </div></p>
+    <p id="Delivery"><a href=""></a><div class="contenedor" id="derecha">
+    
+      <button class="dropdown"><a href="../Delivery/delivrypizzagaucha .html">Delivery</a></button>
+      </div>
     </div> </p>
     <p id="Soporte"><a href=""></a><div class="contenedor" id="derecha">
-      <button class="dropdown"><a href="./soportePiazzaGaucha .html">Soporte</a></button>
+    
+      <button class="dropdown"><a href="../Soporte/soportePiazzaGaucha .html">Soporte</a></button>
+    
     </div></p>
 </nav>
 
-<div class="pura">
+<div class="pura" id="myform">
 <form class="Datos_de_reserva">
     <h1 class="INTRO">Introduzca su nombre</h1><input class="completar"required name="Nombre">
+    <h1 class="INTRO">Introduzca su apellido</h1><input class="completar"required name="Apellido">
     <h1 class="INTRO">Introduzca su Direccion de correo electronico</h1><input class="completar" required name="Mail"> 
     <h1 class="INTRO">Introduzca su Número de telefono</h1><input class="completar" required name="Numero">
+    <h1 class="INTRO">Introduzca la Cantidad de Personas</h1><input class="completar"required name="cantPersonas">
     <h1 class="INTRO">Selecione el dia de su reserva</h1>
-    <select class="seleccion" required>
+    <select class="seleccion" required name="Dia">
         <option selected>Dia</option>
         <option>01</option>
         <option>02</option>
@@ -85,7 +89,7 @@
         <option>30</option>
         <option>31</option>
         </select>
-        <select class="seleccion" required>
+        <select class="seleccion" required name="Mes">
             <option selected>Mes</option>
             <option>Enero</option>
             <option>Febrero</option>
@@ -100,27 +104,10 @@
             <option>Noviembre</option>
             <option>Diciembre</option>
         </select>
-        <select class="seleccion" required>
-            <option selected>Año</option>
-            <option>2020</option>
-            <option>2021</option>
-            <option>2022</option>
-            <option>2023</option>
-            <option>2024</option>
-            <option>2025</option>
-            <option>2026</option>
-            <option>2027</option>
-            <option>2028</option>
-            <option>2029</option>
-            <option>2030</option>
-            <option>2031</option>
-            <option>2032</option>
-            <option>2033</option>
-        </select>
-
+      
     <h1 class="INTRO">Introduzca a que hora le Reservar</h1> 
     
-    <select class="seleccion" required>
+    <select class="seleccion" required name="Hora">
         <option selected>HORA</option>
         <option>10:00</option>
         <option>10:30</option>
@@ -152,7 +139,7 @@
     </select>
 
     <h1 class="INTRO">Introduzca el locoal donde quiere reservar</h1> 
-    <select class="seleccion" required>
+    <select class="seleccion" required name="Sucursal">
         <option selected>locoal</option>
         <option>Belgrano</option>
         <option>Palermo</option>
@@ -173,16 +160,55 @@
 </footer>
 </body>
 <script>
-    function mandarForm(){
-   $ajax({
-    method:"get",
-  url:"Reservas.php",
-  data:{
-    Nombre: $("#Nombre").val(), Mail: $("#Mail").val(),Apellido: $("#Apellido").val(),celular: $("#celular").val(),cantPersonas: $("#cantper").val(),fecha: $("#fecha").val(),sucursal: $("#sucursal").val(), hora: $("#hora").val(),
-  }})
-    .done(function(resultado){
-    console.log(resultado)
-  });
+ function getMonthNumber(monthName) {
+        const monthMap = {
+            'Enero': '01',
+            'Febrero': '02',
+            'Marzo': '03',
+            'MAyo': '04', 
+            'Abril': '05',
+            'Junio': '06',
+            'Julio': '07',
+            'Agosto': '08',
+            'Septiembre': '09',
+            'Ocutubre': '10', 
+            'Noviembre': '11',
+            'Diciembre': '12'
+        };
+
+        return monthMap[monthName] || '00'; 
     }
-  </script>
+
+    function mandarForm() {
+        var diaSeleccionado = document.querySelector('[name="Dia"]').value;
+        var mesSeleccionado = document.querySelector('[name="Mes"]').value;
+        var fechaSeleccionada = getMonthNumber(mesSeleccionado) + '-' + diaSeleccionado;
+        var nombre = $("input[name='Nombre']").val();
+        var apellido = $("input[name='Apellido']").val();
+        var cantPersonas = $("input[name='cantPersonas']").val();
+        var mail = $("input[name='Mail']").val();
+        var numero = $("input[name='Numero']").val();
+        var sucursal = $("select[name='Sucursal']").val();
+        var hora = $("select[name='Hora']").val();
+
+        $.ajax({
+            method: "get",
+            url: "Reservas (1).php",
+            data: {
+                Nombre: nombre,
+                Mail: mail,
+                Apellido: apellido,
+                celular: numero,
+                cantPersonas: cantPersonas,
+                fecha: fechaSeleccionada,
+                sucursal: sucursal,
+                hora: hora
+            }
+        })
+        .done(function(resultado) {
+            console.log(resultado);
+        });
+    }
+</script>
+</body>
 </html>
