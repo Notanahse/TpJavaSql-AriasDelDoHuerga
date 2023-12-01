@@ -1,48 +1,49 @@
 <html>
 <head>
-  <script src="https://code.jquery.com/jquery-3.6.4.js"integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
- <link rel="stylesheet" type="text/css"   href="./soportePiazzaGaucha  .css">
-
+  <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="./soportePiazzaGaucha.css">
 </head>
 <body>
 <nav id="navBar">
-  <a href="./index.html">
-    <img id="Logo" src="./logo (1).png">
+  <a href="../Principal/index.html">
+    <img id="Logo" src="../Logos/LogoManualBlanco.png">
    </a>
-<p id="Menu"><div class="contenedor" id="derecha">
-    <button class="dropdown" ><a href="./Platos.html">Menú</a></button>
-   <div class="dropdown-menu">
-        <a class="dropdown-item" href="./Platos.html#pizzas">Pizzas</a>
-        <a class="dropdown-item" href="./Platos.html#pastas">Pastas</a>
-        <a class="dropdown-item" href="./Platos.html#carne">Carne</a>
-        <a class="dropdown-item" href="./Platos.html#otros">Otros</a>
-  
-    </div>
+<p id="Menu"><a href=""><div class="contenedor" id="derecha">
+
+    <button class="dropdown"><a href="../Platos/Platos.php">Menú</a></button>
+
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="../Platos/Platos.php#pizzas">Pizzas</a>
+      <a class="dropdown-item" href="../Platos/Platos.php#pastas">Pastas</a>
+      <a class="dropdown-item" href="../Platos/Platos.php#carne">Carne</a>
+      <a class="dropdown-item" href="../Platos/Platos.php#otros">Otros</a>
+
+  </div>
 </div> </a></p>
 
 <p id="Lugares"><a href=""><div class="contenedor" id="derecha">
-  <button class="dropdown"><a href="./Lugares.html">Lugares</button>
+  <button class="dropdown"><a href="../Lugares/Lugares.html">Lugares</button>
   <div class="dropdown-menu">
-      <a class="dropdown-item" href="./Lugares.html#belgrano">Belgrano</a>
-      <a class="dropdown-item" href="./Lugares.html#palermo">Palermo</a>
-      <a class="dropdown-item" href="./Lugares.html#pilar">Pilar</a>
-      <a class="dropdown-item" href="./Lugares.html#nuñez">Nuñez</a>
-      <a class="dropdown-item" href="./Lugares.html#colghan">Colghan</a> 
-      <a class="dropdown-item" href="./Lugares.html#urquiza">Urquiza</a> 
-    </div>
-
-</div> </a></p>
-<p id="Reservas"><a href=""></a><div class="contenedor" id="derecha">
-  <button class="dropdown"><a href="./Reservas.html"> Reservas</a></button>
-</div></p>
-
-<p id="Delivery"><a href=""></a><div class="contenedor" id="derecha">
-  <button class="dropdown"><a href="./delivrypizzagaucha .html">Delivery</a></button>
+    <a class="dropdown-item" href="../Lugares/Lugares.html#belgrano">Belgrano</a>
+    <a class="dropdown-item" href="../Lugares/Lugares.html#palermo">Palermo</a>
+    <a class="dropdown-item" href="../Lugares/Lugares.html#pilar">Pilar</a>
+    <a class="dropdown-item" href="../Lugares/Lugares.html">Nuñez</a>
+    <a class="dropdown-item" href="../Lugares/Lugares.html#colghan">Colghan</a> 
+    <a class="dropdown-item" href="../Lugares/Lugares.html">Urquiza</a> 
   </div>
+</div> </a></p>
+<p id="Reservas"><a ></a><div class="contenedor" id="derecha">
+  <button  class="dropdown"><a href="../Reservas/Reservas.html"> Reservas</a></button>  
+</div></p>
+<p id="Delivery"><a href=""></a><div class="contenedor" id="derecha">
 
+  <button class="dropdown"><a href="../Delivery/delivrypizzagaucha .html">Delivery</a></button>
+  </div>
 </div> </p>
-<p id="Soporte"><a href="./soportePiazzaGaucha.html"></a><div class="contenedor" id="derecha">
-  <button class="dropdown"><a href="./soportePiazzaGaucha .html">Soporte</a></button>
+<p id="Soporte"><a href=""></a><div class="contenedor" id="derecha">
+
+  <button class="dropdown"><a href="../Soporte/soportePiazzaGaucha .html">Soporte</a></button>
+
 </div></p>
 </nav>
    
@@ -72,22 +73,32 @@
     <th>¿Hay delivery?</th>
     <tr ><td>Si, tenemos un delivery de alta calidad tu comida te llega en menos de 45min</td></tr>
   </table>
-<div class="Form">
-  <h1>Si tiene alguna consulta complete el formulario de abajo</h1> 
-  <form>
-   <table id="TablaDatos">
-    
-    <tr ><td>
-      <input class="tabla" required placeholder="Introduzca su Nombre" name="Nombre">
-    </td></tr>
-  <tr ><td ><input class="tabla" required placeholder="Introduzca su correo" name="Mail"></td></tr>
-  <tr ><td ><textarea class="pregunta" required placeholder="Introduzca su pregunta o queja para el Soporte " name="Queja"></textarea></td></tr>
-  </table> 
-   <button type="submit" class="enviar" onclick="mandarForm()">Enviar</button>
-</form>
+
+  <div class="Form" id="myForm">
+    <h1>Si tiene alguna consulta complete el formulario de abajo</h1>
+    <form>
+      <table id="TablaDatos">
+        <tr>
+          <td>
+            <input class="tabla" required placeholder="Introduzca su Nombre" name="Nombre" id="Nombre">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input class="tabla" required placeholder="Introduzca su correo" name="Mail" id="Mail">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <textarea class="pregunta" required placeholder="Introduzca su pregunta o queja para el Soporte" name="Queja" id="Queja"></textarea>
+          </td>
+        </tr>
+      </table>
+      <button type="submit" class="enviar">Enviar</button>
+    </form>
+  </div>
 </div>
- 
-</div>
+
 
 
 <footer class="finishline">
@@ -97,18 +108,27 @@
   <h3 class="finishl">Mail: PiazzaGaucha@gmal.com </h3>
 </footer>
 
-</body>
+
 <script>
-  function mandarForm(){
- $ajax({
-  method:"get",
-url:"Soporte.php",
-data:{
-  nombre: $("#Nombre").val(), mail: $("#Mail").val(),
-}})
-  .done(function(resultado){
-  console.log(resultado)
-});
-  }
+   function mandarForm(event) {
+      event.preventDefault();
+      $.ajax({
+        method: "get",
+        url: "Soportes.php",
+        data: {
+          Nombre: encodeURIComponent($("#Nombre").val()),
+          Mail: encodeURIComponent($("#Mail").val()),
+          Queja: encodeURIComponent($("#Queja").val()),
+        },
+      })
+      .done(function(resultado){
+        console.log(resultado);
+      });
+    }
+
+    $(document).ready(function () {
+      $("#myForm").submit(mandarForm);
+    });
 </script>
+</body>
 </html>
