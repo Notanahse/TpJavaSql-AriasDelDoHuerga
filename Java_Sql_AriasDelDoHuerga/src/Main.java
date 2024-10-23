@@ -9,8 +9,9 @@ public class Main {
         List<String> tablas = Arrays.asList("EquipoFutbol", "Fichaje", "Jugadores", "Managers", "Plantilla",
                 "Persona", "Posiciones", "Relacion");
 
-        AccesoBaseDeDatos bdd = new AccesoBaseDeDatos("Polipases", tablas);
+        Controlador bdd = new Controlador("Polipases", tablas);
         bdd.conectar("alumno","alumnoipm");
+        bdd.listadoClubes();
 
     }
 }
