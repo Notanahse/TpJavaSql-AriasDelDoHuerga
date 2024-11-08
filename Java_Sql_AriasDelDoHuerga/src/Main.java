@@ -11,7 +11,6 @@ public class Main {
 
         Controlador bdd = new Controlador("Polipases", tablas);
         bdd.conectar("alumno","alumnoipm");
-        bdd.listadoClubes();
 
     }
 }

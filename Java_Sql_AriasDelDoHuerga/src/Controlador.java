@@ -26,4 +26,11 @@ public class Controlador {
         }
         return listado;
     }
+    public void InstanciarJugadores(){
+        HashMap<Integer,HashMap<String,Object>>resultadoLista=new HashMap<>();
+        resultadoLista=acc.Lista("Jugadores");
+        for(HashMap<String,Object>columna:resultadoLista.values()){
+
+        }
+    }
 }
