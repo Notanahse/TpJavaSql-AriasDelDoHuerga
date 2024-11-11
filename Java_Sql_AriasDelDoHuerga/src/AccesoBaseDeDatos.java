@@ -110,6 +110,26 @@ public class AccesoBaseDeDatos {
         }
         return valorCampo;
     }
+    public HashMap<String,Object> selectValores(String nombreTabla, String nombreCampo,String columnaTabla,Object condicion){
+        ResultSet data;
+        ArrayList<String> valorCampo=new ArrayList<>();
+        HashMap<String,Object>ColumnaValor=new HashMap<>();
+        String consulta= "Select "+ nombreCampo+ " from " + nombreTabla+" where "+columnaTabla+"="+"\""+condicion+"\""+";";
+        System.out.println(consulta);
+        try {
+            PreparedStatement sentenciaSQL = conexion.prepareStatement(consulta);
+            data = sentenciaSQL.executeQuery(consulta);
+            while (data.next() == true) {
+                valorCampo.add(data.getString(nombreCampo));
+                for(String colum:valorCampo){
+                    ColumnaValor.put(colum, data.getObject(colum));
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return ColumnaValor;
+    }
 
     public boolean ifExists(String nombreTabla, String columnaTabla,Object condicion){
         ResultSet data;

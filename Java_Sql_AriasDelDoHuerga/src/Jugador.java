@@ -9,12 +9,6 @@ public class Jugador extends Persona{
         Salario = salario;
     }
 
-    public Jugador(String nombre, String apellido, int DNI, Manager representante, int salario, Posiciones posicion) {
-        super(nombre, apellido, DNI);
-        this.representante = representante;
-        Salario = salario;
-        this.posicion = posicion;
-    }
 
     public Manager getRepresentante() {
         return representante;
