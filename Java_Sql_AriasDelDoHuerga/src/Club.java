@@ -14,6 +14,14 @@ public class Club {
         Plantilla=new HashSet<>();
     }
 
+    public int getIdClub() {
+        return idClub;
+    }
+
+    public void setIdClub(int idClub) {
+        this.idClub = idClub;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -21,8 +29,12 @@ public class Club {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    public void agregarManager(Manager man){
-        /*this.relacionManagers.put(man,)*/
-        //AGREGAR EN CONTROLADOR UNA PARTE QUE NOS DEJE SABER LA RELACION CON EL MANAGER DEPENDIENDO DEL CLUB
+    public void agregarJugador(Jugador jugador){
+        if(!Plantilla.contains(jugador)){
+            this.Plantilla.add(jugador);
+        }
+    }
+    public void agregarManager(Manager man, TipoRelacion tipo){
+        this.relacionManagers.put(man,tipo);
     }
 }

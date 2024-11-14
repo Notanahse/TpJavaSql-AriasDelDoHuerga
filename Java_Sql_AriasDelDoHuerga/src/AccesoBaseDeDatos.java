@@ -76,6 +76,29 @@ public class AccesoBaseDeDatos {
         }
         return tabla;
     }
+    public HashMap<Integer,HashMap<String,Object>>ListaEspecifica(String nombreTabla,String dato,String valor){
+        HashMap<Integer,HashMap<String,Object>>tabla=new HashMap<>();
+        ArrayList<String>columnas=new ArrayList<>();
+        ResultSet data;
+        String consulta="Select * from " + nombreTabla+" where "+dato+" = "+ valor+ " ;";
+        try {
+            PreparedStatement sentenciaSQL=conexion.prepareStatement(consulta);
+            data=sentenciaSQL.executeQuery(consulta);
+            columnas=obtenerColumnasDeUnaTabla(nombreTabla);
+            int contador=0;
+            while(data.next()==true){
+                HashMap<String,Object>ColumnaValor=new HashMap<>();
+                for(String colum:columnas){
+                    ColumnaValor.put(colum, data.getObject(colum));
+                }
+                tabla.put(contador,ColumnaValor);
+                contador++;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return tabla;
+    }
     public int obtenerId(String nombreTabla, String atributo, Object valor) {
         int id = 0;
         ResultSet data;
@@ -93,6 +116,21 @@ public class AccesoBaseDeDatos {
         return id;
     }
 
+    public Object obtenerDatoEspecifico(String nombreTabla, String atributo,String buscado, Object valor) {
+        Object id = 0;
+        ResultSet data;
+        String consulta = "SELECT " + buscado + " FROM " + nombreTabla + " where " + atributo + " = " + "\"" + valor + "\"";
+        try {
+            PreparedStatement sentenciaSQL = conexion.prepareStatement(consulta);
+            data = sentenciaSQL.executeQuery(consulta);
+            while (data.next() == true) {
+                id = data.getObject(buscado);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return id;
+    }
 
     public ArrayList<String> obtenerSelectConMasDeUnValor(String nombreTabla, String nombreCampo,String columnaTabla,Object condicion){
         ResultSet data;
@@ -114,16 +152,21 @@ public class AccesoBaseDeDatos {
         ResultSet data;
         ArrayList<String> valorCampo=new ArrayList<>();
         HashMap<String,Object>ColumnaValor=new HashMap<>();
-        String consulta= "Select "+ nombreCampo+ " from " + nombreTabla+" where "+columnaTabla+"="+"\""+condicion+"\""+";";
+        String consulta= "Select "+ nombreCampo+ " from " + nombreTabla+" where "+columnaTabla+" = "+condicion +";";
         System.out.println(consulta);
         try {
             PreparedStatement sentenciaSQL = conexion.prepareStatement(consulta);
             data = sentenciaSQL.executeQuery(consulta);
             while (data.next() == true) {
-                valorCampo.add(data.getString(nombreCampo));
-                for(String colum:valorCampo){
-                    ColumnaValor.put(colum, data.getObject(colum));
+                for(String colum: data){
+                // fijarse forma de que lea por columna que llega desde data
                 }
+
+
+                /*valorCampo.add(data.getString(nombreCampo));
+                for(String colum:valorCampo){
+                    ColumnaValor.put(nombreCampo,colum);
+                }*/
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
