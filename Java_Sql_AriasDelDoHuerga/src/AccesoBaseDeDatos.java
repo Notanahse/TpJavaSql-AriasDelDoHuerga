@@ -156,8 +156,15 @@ public class AccesoBaseDeDatos {
         try {
             PreparedStatement sentenciaSQL = conexion.prepareStatement(consulta);
             data = sentenciaSQL.executeQuery(consulta);
+        /*IDEA: PONER EL SPLIT ARRIBA Y QUE AGREGE A LA CONSULTA (" and "+ campo +" is not null") por cada campo*/
+            /* String sentencia="";
             String[] campos=nombreCampo.split(",");
-            while (data.next() == true) {
+            for(String campo:campos){
+            sentencia=sentencia+ " and "+ campo +" is not null";
+            }
+            HACERLO EN UNA FUNCION*/
+            String[] campos=nombreCampo.split(",");
+            while (data.next()) {
                 for (String campo:campos){
                     ColumnaValor.put(campo,data.getObject(campo));
                 }

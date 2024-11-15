@@ -52,7 +52,7 @@ public class Controlador {
                         }
                     }
                 } else if ((Integer) columna.get("Manager")==0) {
-                    HashMap<String,Object>valoresRestantes=acc.selectValores("Jugadores","Representante","idPersona2",columna.get("idPersona"));
+                    HashMap<String,Object>valoresRestantes=acc.selectValores("Jugadores","Representante,Salario","idPersona2",columna.get("idPersona"));
                     Manager n=new Manager();
                     for (Manager l:managers){
                         if(l.getId()==(Integer) valoresRestantes.get("Representante")){
