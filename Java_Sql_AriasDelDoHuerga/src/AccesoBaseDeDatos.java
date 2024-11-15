@@ -150,23 +150,17 @@ public class AccesoBaseDeDatos {
     }
     public HashMap<String,Object> selectValores(String nombreTabla, String nombreCampo,String columnaTabla,Object condicion){
         ResultSet data;
-        ArrayList<String> valorCampo=new ArrayList<>();
         HashMap<String,Object>ColumnaValor=new HashMap<>();
         String consulta= "Select "+ nombreCampo+ " from " + nombreTabla+" where "+columnaTabla+" = "+condicion +";";
         System.out.println(consulta);
         try {
             PreparedStatement sentenciaSQL = conexion.prepareStatement(consulta);
             data = sentenciaSQL.executeQuery(consulta);
+            String[] campos=nombreCampo.split(",");
             while (data.next() == true) {
-                for(String colum: data){
-                // fijarse forma de que lea por columna que llega desde data
+                for (String campo:campos){
+                    ColumnaValor.put(campo,data.getObject(campo));
                 }
-
-
-                /*valorCampo.add(data.getString(nombreCampo));
-                for(String colum:valorCampo){
-                    ColumnaValor.put(nombreCampo,colum);
-                }*/
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
