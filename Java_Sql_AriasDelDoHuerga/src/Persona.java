@@ -1,15 +1,27 @@
+import java.time.LocalDate;
+
 public class Persona {
     private String nombre;
     private String apellido;
+    private LocalDate nacimiento;
     private int DNI;
 
-    public Persona( String nombre, String apellido, int DNI) {
+    public Persona( String nombre, String apellido, int DNI,LocalDate nacimiento) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.DNI = DNI;
+        this.nacimiento=nacimiento;
     }
 
     public Persona() {
+    }
+
+    public LocalDate getNacimiento() {
+        return nacimiento;
+    }
+
+    public void setNacimiento(LocalDate nacimiento) {
+        this.nacimiento = nacimiento;
     }
 
     public String getNombre() {

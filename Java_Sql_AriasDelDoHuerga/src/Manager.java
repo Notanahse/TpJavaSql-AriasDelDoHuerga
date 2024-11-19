@@ -1,7 +1,9 @@
+import java.time.LocalDate;
+
 public class Manager extends Persona {
     private int id;
-    public Manager( int id,String nombre, String apellido, int DNI) {
-        super(nombre, apellido, DNI);
+    public Manager(int id, String nombre, String apellido, int DNI, LocalDate nacimiento) {
+        super(nombre, apellido, DNI,nacimiento);
         this.id=id;
     }
 

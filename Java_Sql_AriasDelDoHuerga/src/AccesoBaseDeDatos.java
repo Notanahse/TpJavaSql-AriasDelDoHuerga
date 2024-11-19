@@ -148,21 +148,23 @@ public class AccesoBaseDeDatos {
         }
         return valorCampo;
     }
+    public String agregado(String splitear){
+        String sentencia="";
+        String[] campos=splitear.split(",");
+        for(String campo:campos){
+            sentencia=sentencia+" and "+ campo +" is not null";
+        }
+        return sentencia;
+    }
     public HashMap<String,Object> selectValores(String nombreTabla, String nombreCampo,String columnaTabla,Object condicion){
         ResultSet data;
         HashMap<String,Object>ColumnaValor=new HashMap<>();
-        String consulta= "Select "+ nombreCampo+ " from " + nombreTabla+" where "+columnaTabla+" = "+condicion +";";
+        String sentencia=agregado(nombreCampo);
+        String consulta= "Select "+ nombreCampo+ " from " + nombreTabla+" where "+columnaTabla+" = "+condicion + " " +sentencia+";";
         System.out.println(consulta);
         try {
             PreparedStatement sentenciaSQL = conexion.prepareStatement(consulta);
             data = sentenciaSQL.executeQuery(consulta);
-        /*IDEA: PONER EL SPLIT ARRIBA Y QUE AGREGE A LA CONSULTA (" and "+ campo +" is not null") por cada campo*/
-            /* String sentencia="";
-            String[] campos=nombreCampo.split(",");
-            for(String campo:campos){
-            sentencia=sentencia+ " and "+ campo +" is not null";
-            }
-            HACERLO EN UNA FUNCION*/
             String[] campos=nombreCampo.split(",");
             while (data.next()) {
                 for (String campo:campos){

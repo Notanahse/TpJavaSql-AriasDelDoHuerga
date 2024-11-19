@@ -10,7 +10,7 @@ public class Main {
                 "Persona", "Posiciones", "Relacion");
 
         Controlador bdd = new Controlador("Polipases", tablas);
-        bdd.conectar("alumno","alumnoipm");
+        bdd.conectar("root","bAcK_7oM3Y$");
         bdd.listadoClubes();
         bdd.InstanciarJugadores();
 
