@@ -99,19 +99,4 @@ public class Club {
         }
         return managers;
     }
-    public HashSet<Jugador>mejoresPagos(){
-        HashMap<Posiciones,HashSet<Jugador>>listado=ListadoPorPosicion();
-        HashSet<Jugador>maxSalarios=new HashSet<>();
-        for (Posiciones p:listado.keySet()){
-            Jugador w=new Jugador();
-            for (Jugador j:listado.get(p)){
-                if(w.getSalario()< j.getSalario()){
-                    w=j;
-                }
-            }
-            maxSalarios.add(w);
-        }
-        return maxSalarios;
-    }
-
 }

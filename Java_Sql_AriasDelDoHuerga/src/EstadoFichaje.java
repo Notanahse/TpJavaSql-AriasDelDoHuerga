@@ -1,3 +1,3 @@
 public enum EstadoFichaje {
-    CAIDO,CONFIRMADO;
+    CONFIRMADO,RECHAZADO;
 }

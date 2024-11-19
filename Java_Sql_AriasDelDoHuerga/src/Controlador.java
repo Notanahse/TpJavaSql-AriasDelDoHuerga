@@ -35,15 +35,18 @@ public class Controlador {
         List<String>listdate=Arrays.asList(fech);
         return LocalDate.of((Integer.parseInt(listdate.get(0))),Integer.parseInt(listdate.get(1)),Integer.parseInt(listdate.get(2)));
     }
-    public void InstanciarJugadores(){
+    public HashMap<String,HashSet<Persona>> instanciarManagersJugadores(HashSet<Club> clubes){
+        HashMap<String,HashSet<Persona>> instaciados=new HashMap<>();
+        HashSet<Persona>listadoManagers=new HashSet<>();
+        HashSet<Persona>listadoJugadores=new HashSet<>();
         HashMap<Integer,HashMap<String,Object>>resultadoLista=new HashMap<>();
         resultadoLista=acc.Lista("Persona");
         for(HashMap<String,Object>columna:resultadoLista.values()){
                 if(((Integer)columna.get("Manager")) ==1){
                     int id= acc.obtenerId("Managers","idPersona",columna.get("idPersona"));
-                   Manager m= new Manager(id,(String) columna.get("Nombre"),(String) columna.get("Apellido"),(Integer) columna.get("DNI"),fecha(columna.get("FechaNacimiento")));
-                   this.managers.add(m);
-                    HashMap<Integer,HashMap<String,Object>>especifico=new HashMap<>();
+                   Manager m= new Manager(id,(String) columna.get("Nombre"),(String) columna.get("Apellid|o"),(Integer) columna.get("DNI"),fecha(columna.get("FechaNacimiento")));
+                   listadoManagers.add(m);
+                   /* HashMap<Integer,HashMap<String,Object>>especifico=new HashMap<>();
                     especifico=acc.ListaEspecifica("Relacion","Managers_idManagers",Integer.toString(id));
                     for(HashMap<String,Object>coloEspecifica:especifico.values()){
                         for(Club c:clubes){
@@ -55,16 +58,16 @@ public class Controlador {
                                 }
                             }
                         }
-                    }
+                    }*/
                 } else if ((Integer) columna.get("Manager")==0) {
                     HashMap<String,Object>valoresRestantes=acc.selectValores("Jugadores","Representante,Salario","idPersona2",columna.get("idPersona"));
-                    Manager n=new Manager();
+                    Manager representante=new Manager();
                     for (Manager l:managers){
                         if(l.getId()==(Integer) valoresRestantes.get("Representante")){
-                            n=l;
+                            representante=l;
                         }
                     }
-                    Jugador j=new Jugador((String) columna.get("Nombre"),(String)columna.get("Apellido"),(Integer) columna.get("DNI"),n,(Integer) valoresRestantes.get("Salario"),fecha(columna.get("FechaNacimiento")));
+                    Jugador j=new Jugador((String) columna.get("Nombre"),(String)columna.get("Apellido"),(Integer) columna.get("DNI"),representante,(Integer) valoresRestantes.get("Salario"),fecha(columna.get("FechaNacimiento")));
                     int clubID=(Integer) acc.obtenerDatoEspecifico("Plantilla","idJugador","idEquipoFutbol",columna.get("IdJugadores"));
                     for(Club b:clubes){
                         if(b.getIdClub()==clubID){
@@ -82,9 +85,12 @@ public class Controlador {
                     } else if (posc.toUpperCase().equals(Posiciones.ARQUERO.name())) {
                         j.setPosicion(Posiciones.ARQUERO);
                     }
-                    jugadores.add(j);
+                 listadoJugadores.add(j);
+                 }
                 }
-                }
+        instaciados.put("Managers",listadoManagers);
+        instaciados.put("Jugadores",listadoJugadores);
+        return instaciados;
         }
         public void instanciarFichajes(){
             HashMap<Integer,HashMap<String,Object>>resultadosLista=new HashMap<>();
@@ -105,8 +111,8 @@ public class Controlador {
                     }
                 }
                 EstadoFichaje n=null;
-                if(((String)columna.get("EstadoDelFichaje")).toUpperCase().equals(EstadoFichaje.CAIDO.name())){
-                    n=EstadoFichaje.CAIDO;
+                if(((String)columna.get("EstadoDelFichaje")).toUpperCase().equals(EstadoFichaje.RECHAZADO.name())){
+                    n=EstadoFichaje.RECHAZADO;
                 }else if(((String)columna.get("EstadoDelFichaje")).toUpperCase().equals(EstadoFichaje.CONFIRMADO.name())){
                     n=EstadoFichaje.CONFIRMADO;
                 }
