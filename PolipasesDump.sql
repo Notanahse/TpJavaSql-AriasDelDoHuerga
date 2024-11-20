@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.40, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: polipases
 -- ------------------------------------------------------
--- Server version	8.0.36
+-- Server version	8.0.40
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -66,7 +66,7 @@ CREATE TABLE `fichaje` (
 
 LOCK TABLES `fichaje` WRITE;
 /*!40000 ALTER TABLE `fichaje` DISABLE KEYS */;
-INSERT INTO `fichaje` VALUES (1,1,6,'2020-03-17 14:51:00','Confirmado');
+INSERT INTO `fichaje` VALUES (1,1,6,'2020-03-17 14:51:00','Confirmado'),(2,32,2,'2024-10-12 06:23:21','confirmado'),(3,33,3,'2024-10-13 19:51:07',' confirmado'),(4,34,4,'2024-10-14 02:17:16','rechazado'),(6,31,1,'2024-10-11 12:53:00','confirmado');
 /*!40000 ALTER TABLE `fichaje` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -250,4 +250,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-20  0:36:44
+-- Dump completed on 2024-11-20 20:12:13
