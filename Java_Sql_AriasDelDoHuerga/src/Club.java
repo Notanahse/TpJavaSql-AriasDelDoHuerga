@@ -72,23 +72,14 @@ public class Club {
         Listado.put(Posiciones.ARQUERO,Arqueros);
         return Listado;
     }
-    public void masJoven(){
-        Jugador j=new Jugador();
-        for(Jugador p:Plantilla){
-            if(j.getNacimiento().isAfter(p.getNacimiento())){
-                j=p;
-            }
-        }
-        System.out.println("El jugador mas joven del club es: "+ j.getNombre()+ " "+ j.getApellido());
-    }
-    public HashSet<Jugador>managersNoCorrespondientes(){
-        HashSet<Jugador>jugadores=new HashSet<>();
+    public HashSet<Manager>managersNoCorrespondientes(){
+        HashSet<Manager>noCorrespondientes=new HashSet<>();
         for(Jugador j:Plantilla){
             if(relacionManagers.get(j.getRepresentante()).equals(TipoRelacion.PROHIBIDA)){
-                jugadores.add(j);
+                noCorrespondientes.add(j.getRepresentante());
             }
         }
-        return jugadores;
+        return noCorrespondientes;
     }
 
     public HashSet<Jugador> getPlantilla() {

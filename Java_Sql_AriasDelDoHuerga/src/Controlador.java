@@ -21,10 +21,10 @@ public class Controlador {
         HashMap<Integer,HashMap<String,Object>>resultadosLista=new HashMap<>();
         HashSet<Club>listado=new HashSet<>();
         ArrayList<String>columnas=new ArrayList<>();
-        resultadosLista=acc.Lista("EquipoFutbol");
+        resultadosLista=acc.Lista("equipofutbol");
         for (HashMap<String,Object>columna:resultadosLista.values()){
-                Club c =new Club((Integer) columna.get("idEquipoFutbol"),(String) columna.get("Nombre"));
-                listado.add(c);
+                Club club =new Club((Integer) columna.get("idEquipoFutbol"),(String) columna.get("Nombre"));
+                listado.add(club);
         }
         return listado;
     }
@@ -39,55 +39,62 @@ public class Controlador {
         HashSet<Persona>listadoManagers=new HashSet<>();
         HashSet<Persona>listadoJugadores=new HashSet<>();
         HashMap<Integer,HashMap<String,Object>>resultadoLista=new HashMap<>();
-        resultadoLista=acc.Lista("Persona");
+        resultadoLista=acc.Lista("persona");
         for(HashMap<String,Object>columna:resultadoLista.values()){
                 if(((Integer)columna.get("Manager")) ==1){
-                    int id= acc.obtenerId("Managers","idPersona",columna.get("idPersona"));
+                    int id= acc.obtenerId("managers","idPersona",columna.get("idPersona"));
                     LocalDate fecha=fecha(columna.get("FechaNacimiento"));
-                   Manager m= new Manager(id,(String) columna.get("Nombre"),(String) columna.get("Apellido"),(Integer) columna.get("DNI"),fecha);
-                   listadoManagers.add(m);
+                   Manager manager= new Manager(id,(String) columna.get("Nombre"),(String) columna.get("Apellido"),(Integer) columna.get("DNI"),fecha);
+                   listadoManagers.add(manager);
                     HashMap<Integer,HashMap<String,Object>>especifico=new HashMap<>();
-                    especifico=acc.ListaEspecifica("Relacion","Managers_idManagers",Integer.toString(id));
+                    especifico=acc.ListaEspecifica("relacion","Managers_idManagers",Integer.toString(id));
                     for(HashMap<String,Object>coloEspecifica:especifico.values()){
                         for(Club c:clubes){
                             if(c.getIdClub()==(Integer)coloEspecifica.get("EquipoFutbol_idEquipoFutbol")){
                                 if((((String)coloEspecifica. get("Relacion")).toUpperCase()).equals(TipoRelacion.ASOCIADOS.name())){
-                                    c.agregarManager(m,TipoRelacion.ASOCIADOS);
+                                    c.agregarManager(manager,TipoRelacion.ASOCIADOS);
                                 }else if((((String)coloEspecifica.get("Relacion")).toUpperCase()).equals(TipoRelacion.PROHIBIDA.name())){
-                                    c.agregarManager(m,TipoRelacion.PROHIBIDA);
+                                    c.agregarManager(manager,TipoRelacion.PROHIBIDA);
                                 }
                             }
                         }
                     }
                 } else if ((Integer) columna.get("Manager")==0) {
-                    HashMap<String,Object>valoresRestantes=acc.selectValores("Jugadores","Representante,Salario","idPersona2",columna.get("idPersona"));
+                    HashMap<String,Object>valoresRestantes=acc.selectValores("jugadores","Representante,Salario","idPersona2",columna.get("idPersona"));
                     Manager representante=new Manager();
-                    for (Manager l:managers){
-                        if(l.getId()==(Integer) valoresRestantes.get("Representante")){
-                            representante=l;
+                    for (Persona mana: listadoManagers){
+                        Object getidPer=acc.obtenerDatoEspecifico("persona","DNI","idPersona",mana.getDNI());
+                        int idManager =(Integer) acc.obtenerDatoEspecifico("managers","IdPersona","idManagers",getidPer);
+                        if(idManager==(Integer) valoresRestantes.get("Representante")){
+                            representante=(Manager) mana;
                         }
                     }
-                    Jugador j=new Jugador((String) columna.get("Nombre"),(String)columna.get("Apellido"),(Integer) columna.get("DNI"),representante,(Integer) valoresRestantes.get("Salario"),fecha(columna.get("FechaNacimiento")));
-                    int clubID=(Integer) acc.obtenerDatoEspecifico("Plantilla","idJugador","idEquipoFutbol",columna.get("IdJugadores"));
-                    for(Club b:clubes){
-                        if(b.getIdClub()==clubID){
-                            b.agregarJugador(j);
+                    if(valoresRestantes.get("Representante")!=null && valoresRestantes.get("Salario")!=null){
+                    Jugador jogador=new Jugador((String) columna.get("Nombre"),(String)columna.get("Apellido"),(Integer) columna.get("DNI"),representante,(Integer) valoresRestantes.get("Salario"),fecha(columna.get("FechaNacimiento")));
+                    Object getidPer=acc.obtenerDatoEspecifico("jugadores","idPersona2","IdJugadores",columna.get("idPersona"));
+                    int clubID=(Integer) acc.obtenerDatoEspecifico("plantilla","idJugador","idEquipoFutbol",getidPer);
+                    for(Club club:clubes){
+                        if(club.getIdClub()==clubID){
+                            club.agregarJugador(jogador);
                         }
                     }
-                    Object idJug=acc.obtenerDatoEspecifico("Jugadores","idPersona2","IdJugadores",columna.get("idPersona"));
-                    Object ident=acc.obtenerDatoEspecifico("Plantilla","idJugador","Posiciones_idPosiciones",idJug);
-                    String posc=(String) acc.obtenerDatoEspecifico("Posiciones","idPosiciones","Descripcion",ident);
-                    if(posc.toUpperCase().equals(Posiciones.DELANTERO.name())){
-                        j.setPosicion(Posiciones.DELANTERO);
-                    } else if (posc.toUpperCase().equals(Posiciones.MEDIOCAMPO.name())) {
-                        j.setPosicion(Posiciones.MEDIOCAMPO);
-                    } else if (posc.toUpperCase().equals(Posiciones.DEFENSA)) {
-                        j.setPosicion(Posiciones.DEFENSA);
-                    } else if (posc.toUpperCase().equals(Posiciones.ARQUERO.name())) {
-                        j.setPosicion(Posiciones.ARQUERO);
+                    Object idJug=acc.obtenerDatoEspecifico("jugadores","idPersona2","IdJugadores",columna.get("idPersona"));
+                    Object ident=acc.obtenerDatoEspecifico("plantilla","idJugador","Posiciones_idPosiciones",idJug);
+                    if((Integer) ident!=0) {
+                        String posc = (String) acc.obtenerDatoEspecifico("posiciones", "idPosiciones", "Descripcion", ident);
+                        if (posc.toUpperCase().equals(Posiciones.DELANTERO.name())) {
+                            jogador.setPosicion(Posiciones.DELANTERO);
+                        } else if (posc.toUpperCase().equals(Posiciones.MEDIOCAMPO.name())) {
+                            jogador.setPosicion(Posiciones.MEDIOCAMPO);
+                        } else if (posc.toUpperCase().equals(Posiciones.DEFENSA)) {
+                            jogador.setPosicion(Posiciones.DEFENSA);
+                        } else if (posc.toUpperCase().equals(Posiciones.ARQUERO.name())) {
+                            jogador.setPosicion(Posiciones.ARQUERO);
+                        }
+                        listadoJugadores.add(jogador);
                     }
-                 listadoJugadores.add(j);
                  }
+                }
                 }
         instaciados.put("Managers",listadoManagers);
         instaciados.put("Jugadores",listadoJugadores);
@@ -96,10 +103,10 @@ public class Controlador {
         public HashSet<Fichaje> instanciarFichajes(HashSet<Club>clubes){
             HashSet<Fichaje>fichajes=new HashSet<>();
             HashMap<Integer,HashMap<String,Object>>resultadosLista=new HashMap<>();
-            resultadosLista=acc.Lista("Fichaje");
+            resultadosLista=acc.Lista("fichaje");
             for(HashMap<String,Object>columna:resultadosLista.values()){
-                Object idPer=acc.obtenerDatoEspecifico("Jugadores","IdJugadores","idPersona2",columna.get("IdJugadores"));
-                int dni=(Integer) acc.obtenerDatoEspecifico("Persona","idPersona","DNI",idPer);
+                Object idPer=acc.obtenerDatoEspecifico("jugadores","IdJugadores","idPersona2",columna.get("IdJugadores"));
+                int dni=(Integer) acc.obtenerDatoEspecifico("persona","idPersona","DNI",idPer);
                 Jugador j=new Jugador();
                 for(Club c:clubes){
                     for (Jugador w:c.getPlantilla()){
@@ -125,19 +132,96 @@ public class Controlador {
             }
             return fichajes;
         }
+        public Posiciones cambio(Posiciones posc){
+        int randomNum=0;
+        if (posc.equals(Posiciones.DELANTERO)){
+            randomNum=(int)(Math.random()*3);
+            switch (randomNum){
+                case 0:
+                    posc=Posiciones.DEFENSA;
+                    break;
+                case 1:
+                    posc=Posiciones.MEDIOCAMPO;
+                    break;
+                case 2:
+                    posc=Posiciones.ARQUERO;
+                    break;
+            }
+        } else if (posc.equals(Posiciones.MEDIOCAMPO)) {
+            randomNum=(int)(Math.random()*3);
+            switch (randomNum){
+                case 0:
+                    posc=Posiciones.DEFENSA;
+                    break;
+                case 1:
+                    posc=Posiciones.DELANTERO;
+                    break;
+                case 2:
+                    posc=Posiciones.ARQUERO;
+                    break;
+            }
+        } else if (posc.equals(Posiciones.DEFENSA)) {
+            randomNum=(int)(Math.random()*3);
+            switch (randomNum){
+                case 0:
+                    posc=Posiciones.DELANTERO;
+                    break;
+                case 1:
+                    posc=Posiciones.MEDIOCAMPO;
+                    break;
+                case 2:
+                    posc=Posiciones.ARQUERO;
+                    break;
+            }
+        }else if(posc.equals(Posiciones.ARQUERO)){
+            randomNum=(int)(Math.random()*3);
+            switch (randomNum){
+                case 0:
+                    posc=Posiciones.DEFENSA;
+                    break;
+                case 1:
+                    posc=Posiciones.MEDIOCAMPO;
+                    break;
+                case 2:
+                    posc=Posiciones.DELANTERO;
+                    break;
+            }
+        }
+        return posc;
+        }
+
+    public HashSet<Manager> ListadoManagersAceptados(Club clubsolicitado) {
+        HashSet<Manager>listado=new HashSet<>();
+        for(Manager man:clubsolicitado.getRelacionManagers().keySet()){
+            if(clubsolicitado.getRelacionManagers().get(man).equals(TipoRelacion.ASOCIADOS)){
+            listado.add(man);
+            }
+        }
+        return listado;
+    }
+
     public void modFichajes(HashSet<Fichaje>rechazados){
         for (Fichaje f:rechazados){
             int caso=validacion(f);
+            while(caso>0){
             switch (caso){
                 case 1:
-                    //cambiar de jugador o cambiar la posicion del mismo
+                    f.getJugadorFichado().setPosicion(cambio(f.getJugadorFichado().getPosicion()));
+                    caso=validacion(f);
                 break;
                 case 2:
-                    //Cambiar de manager al jugador
+                    HashSet<Manager>listados=ListadoManagersAceptados(f.getEquipoFichado());
+                    for (Manager mana:listados){
+                        if(caso!=0){
+                            f.getJugadorFichado().setRepresentante(mana);
+                        }
+                        caso=validacion(f);
+                      }
+                    }
                 break;
             }
+            }
         }
-    }
     public int validacion(Fichaje fich){
         int caso=0;
         if(fich.getEquipoFichado().ListadoPorPosicion().get(fich.getJugadorFichado().getPosicion()).size()>fich.getJugadorFichado().getPosicion().getCapMax()){

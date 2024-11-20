@@ -247,6 +247,28 @@ public class AccesoBaseDeDatos {
             e.printStackTrace();
         }
     }
+    public void actualizarDatos(String nombreTabla, String nombreCampo, int id){
+        int valorCampoPrevio= Integer.parseInt(obtenerValorDeUnCampo(nombreTabla,nombreCampo, id));
+        String columnaId=obtenerColumnasDeUnaTabla(nombreTabla).get(0);
+        String consulta= "Update "+nombreTabla+" set " + nombreCampo+ "=" +valorCampoPrevio + "+1"+ " where " + columnaId + "=" +id+";";
+        System.out.println(consulta);
+
+        try{
+            PreparedStatement sentenciaSQL=conexion.prepareStatement(consulta);
+            int result=sentenciaSQL.executeUpdate();
+
+            if(result>0){
+                System.out.println("Actualizacion hecha");
+            }
+            else{
+                System.out.println("Fallo actualizacion");
+            }
+
+            sentenciaSQL.close();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 
     public void actualizarEstado(String nombreTabla, String nombreCampo, int id){
         String valorCampoPrevio= (obtenerValorDeUnCampo(nombreTabla,nombreCampo, id)).toUpperCase();

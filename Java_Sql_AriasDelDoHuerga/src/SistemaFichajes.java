@@ -10,9 +10,18 @@ public class SistemaFichajes {
 
     public SistemaFichajes(String nombreBase, List<String>tablas) {
         this.control=new Controlador(nombreBase,tablas);
+        Managers=new HashSet<>();
     }
 
     public SistemaFichajes() {
+    }
+
+    public HashSet<Club> getEquipos() {
+        return Equipos;
+    }
+
+    public void setEquipos(HashSet<Club> equipos) {
+        Equipos = equipos;
     }
 
     public HashSet<Fichaje> getFichajes() {
@@ -60,7 +69,9 @@ public class SistemaFichajes {
         HashSet<Fichaje>fichajesPasadosCap=new HashSet<>();
         for(Fichaje f:Fichajes){
             if(f.getEquipoFichado().ListadoPorPosicion().get(f.getJugadorFichado().getPosicion()).size()>f.getJugadorFichado().getPosicion().getCapMax()){
+                f.setEstado(EstadoFichaje.RECHAZADO);
                 fichajesPasadosCap.add(f);
+
             }
         }
         return fichajesPasadosCap;
@@ -96,5 +107,24 @@ public class SistemaFichajes {
                 control.modFichajes(rechazados);
             }
         }
+    }
+    public Jugador fichajeMasJoven(){
+        Jugador masJoven=new Jugador();
+        for(Fichaje fich:Fichajes){
+            if(fich.getEquipoFichado().equals(EstadoFichaje.CONFIRMADO) && fich.getJugadorFichado().getNacimiento().isBefore(masJoven.getNacimiento())){
+                masJoven=fich.getJugadorFichado();
+            }
+        }
+        return masJoven;
+    }
+    public HashSet<Manager>managersNoCorrespondientes(){
+        HashSet<Manager>noCorrespondientes=new HashSet<>();
+        for(Club club:Equipos){
+            HashSet<Manager>listadoNo=club.managersNoCorrespondientes();
+            for (Manager man:listadoNo){
+                noCorrespondientes.add(man);
+            }
+        }
+        return noCorrespondientes;
     }
 }
