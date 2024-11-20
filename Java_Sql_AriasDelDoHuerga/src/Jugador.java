@@ -12,6 +12,7 @@ public class Jugador extends Persona{
     }
 
     public Jugador() {
+
     }
 
     public void setPosicion(Posiciones posicion) {

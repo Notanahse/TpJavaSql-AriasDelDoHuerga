@@ -14,6 +14,7 @@ public class Persona {
     }
 
     public Persona() {
+        nacimiento=LocalDate.now();
     }
 
     public LocalDate getNacimiento() {

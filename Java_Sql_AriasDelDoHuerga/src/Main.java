@@ -9,7 +9,7 @@ public class Main {
                 "Persona", "Posiciones", "Relacion");
 
         SistemaFichajes sis=new SistemaFichajes("Polipases",tablas);
-        sis.conectar("alumno","alumnoipm"); //mi casa:"root" "bAcK_7oM3Y$"
+        sis.conectar("root","roo7pa$w0rd"); //mi casa:"root" "bAcK_7oM3Y$" notebook: "root" "roo7pa$w0rd"
         sis.iniciarEquipos();
         sis.iniciarManagersYJugadores();
         sis.iniciarFichajes();

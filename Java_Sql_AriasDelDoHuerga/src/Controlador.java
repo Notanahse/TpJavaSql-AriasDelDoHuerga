@@ -61,6 +61,7 @@ public class Controlador {
                     }
                 } else if ((Integer) columna.get("Manager")==0) {
                     HashMap<String,Object>valoresRestantes=acc.selectValores("jugadores","Representante,Salario","idPersona2",columna.get("idPersona"));
+                    if(valoresRestantes.get("Representante")!=null && valoresRestantes.get("Salario")!=null){
                     Manager representante=new Manager();
                     for (Persona mana: listadoManagers){
                         Object getidPer=acc.obtenerDatoEspecifico("persona","DNI","idPersona",mana.getDNI());
@@ -69,7 +70,6 @@ public class Controlador {
                             representante=(Manager) mana;
                         }
                     }
-                    if(valoresRestantes.get("Representante")!=null && valoresRestantes.get("Salario")!=null){
                     Jugador jogador=new Jugador((String) columna.get("Nombre"),(String)columna.get("Apellido"),(Integer) columna.get("DNI"),representante,(Integer) valoresRestantes.get("Salario"),fecha(columna.get("FechaNacimiento")));
                     Object getidPer=acc.obtenerDatoEspecifico("jugadores","idPersona2","IdJugadores",columna.get("idPersona"));
                     int clubID=(Integer) acc.obtenerDatoEspecifico("plantilla","idJugador","idEquipoFutbol",getidPer);

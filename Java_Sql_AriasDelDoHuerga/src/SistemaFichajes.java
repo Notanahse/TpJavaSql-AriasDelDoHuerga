@@ -111,8 +111,10 @@ public class SistemaFichajes {
     public Jugador fichajeMasJoven(){
         Jugador masJoven=new Jugador();
         for(Fichaje fich:Fichajes){
-            if(fich.getEquipoFichado().equals(EstadoFichaje.CONFIRMADO) && fich.getJugadorFichado().getNacimiento().isBefore(masJoven.getNacimiento())){
-                masJoven=fich.getJugadorFichado();
+            if(fich.getEstado().equals(EstadoFichaje.CONFIRMADO)) {
+                if ((fich.getJugadorFichado().getNacimiento().isBefore(masJoven.getNacimiento()))) {
+                    masJoven = fich.getJugadorFichado();
+                }
             }
         }
         return masJoven;
