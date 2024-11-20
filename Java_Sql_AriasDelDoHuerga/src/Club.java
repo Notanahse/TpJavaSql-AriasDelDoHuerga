@@ -17,6 +17,14 @@ public class Club {
     public Club() {
     }
 
+    public HashMap<Manager, TipoRelacion> getRelacionManagers() {
+        return relacionManagers;
+    }
+
+    public void setRelacionManagers(HashMap<Manager, TipoRelacion> relacionManagers) {
+        this.relacionManagers = relacionManagers;
+    }
+
     public int getIdClub() {
         return idClub;
     }
@@ -82,6 +90,15 @@ public class Club {
         }
         return jugadores;
     }
+
+    public HashSet<Jugador> getPlantilla() {
+        return Plantilla;
+    }
+
+    public void setPlantilla(HashSet<Jugador> plantilla) {
+        Plantilla = plantilla;
+    }
+
     public HashSet<Manager>masDeDosJugadores(){
         HashSet<Manager>managers=new HashSet<>();
         for(Manager m:relacionManagers.keySet()){

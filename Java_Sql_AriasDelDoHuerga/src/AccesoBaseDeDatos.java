@@ -119,7 +119,7 @@ public class AccesoBaseDeDatos {
     public Object obtenerDatoEspecifico(String nombreTabla, String atributo,String buscado, Object valor) {
         Object id = 0;
         ResultSet data;
-        String consulta = "SELECT " + buscado + " FROM " + nombreTabla + " where " + atributo + " = " + "\"" + valor + "\"";
+        String consulta = "SELECT " + buscado + " FROM " + nombreTabla + " where " + atributo + " = " + "\"" + valor + "\"" + agregado(buscado)+ ";";
         try {
             PreparedStatement sentenciaSQL = conexion.prepareStatement(consulta);
             data = sentenciaSQL.executeQuery(consulta);

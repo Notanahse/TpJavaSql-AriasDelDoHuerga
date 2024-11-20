@@ -12,7 +12,13 @@ public class Main {
         Controlador bdd = new Controlador("Polipases", tablas);
         bdd.conectar("root","bAcK_7oM3Y$");
         bdd.listadoClubes();
-        bdd.InstanciarJugadores();
+        SistemaFichajes sis=new SistemaFichajes("Polipases",tablas);
+        sis.conectar("root","bAcK_7oM3Y$");
+        sis.iniciarEquipos();
+        sis.iniciarManagersYJugadores();
+        sis.iniciarFichajes();
+        bdd.instanciarFichajes(bdd.listadoClubes());
+
 
     }
 }

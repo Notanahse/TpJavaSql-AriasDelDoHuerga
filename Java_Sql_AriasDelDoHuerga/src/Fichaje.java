@@ -1,13 +1,14 @@
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Fichaje {
     private int idFichaje;
     private Jugador jugadorFichado;
     private Club EquipoFichado;
-    private LocalDate fechaFichaje;
+    private LocalDateTime fechaFichaje;
     private EstadoFichaje estado;
 
-    public Fichaje(int idFichaje, Jugador jugadorFichado, Club equipoFichado, LocalDate fechaFichaje, EstadoFichaje estado) {
+    public Fichaje(int idFichaje, Jugador jugadorFichado, Club equipoFichado, LocalDateTime fechaFichaje, EstadoFichaje estado) {
         this.idFichaje = idFichaje;
         this.jugadorFichado = jugadorFichado;
         EquipoFichado = equipoFichado;
@@ -39,11 +40,11 @@ public class Fichaje {
         EquipoFichado = equipoFichado;
     }
 
-    public LocalDate getFechaFichaje() {
+    public LocalDateTime getFechaFichaje() {
         return fechaFichaje;
     }
 
-    public void setFechaFichaje(LocalDate fechaFichaje) {
+    public void setFechaFichaje(LocalDateTime fechaFichaje) {
         this.fechaFichaje = fechaFichaje;
     }
 

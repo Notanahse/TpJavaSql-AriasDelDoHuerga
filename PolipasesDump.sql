@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.40, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: polipases
 -- ------------------------------------------------------
--- Server version	8.0.40
+-- Server version	8.0.36
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -50,7 +50,7 @@ CREATE TABLE `fichaje` (
   `idFichaje` int NOT NULL,
   `IdJugadores` int DEFAULT NULL,
   `idEquipoFutbol` int DEFAULT NULL,
-  `FechaFichaje` date DEFAULT NULL,
+  `FechaFichaje` datetime DEFAULT NULL,
   `EstadoDelFichaje` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idFichaje`),
   KEY `IdJugadores_idx` (`IdJugadores`),
@@ -66,6 +66,7 @@ CREATE TABLE `fichaje` (
 
 LOCK TABLES `fichaje` WRITE;
 /*!40000 ALTER TABLE `fichaje` DISABLE KEYS */;
+INSERT INTO `fichaje` VALUES (1,1,6,'2020-03-17 14:51:00','Confirmado');
 /*!40000 ALTER TABLE `fichaje` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -182,7 +183,7 @@ CREATE TABLE `plantilla` (
 
 LOCK TABLES `plantilla` WRITE;
 /*!40000 ALTER TABLE `plantilla` DISABLE KEYS */;
-INSERT INTO `plantilla` VALUES (1,31,1,'1',32),(2,32,2,'2',12),(2,32,3,'2',20),(3,33,4,'3',11),(4,34,1,'4',29),(5,35,2,'5',12),(6,36,3,'6',6),(7,37,4,'7',36),(8,38,4,'8',7),(9,39,4,'9',4),(10,40,3,'10',9),(11,41,4,'11',13),(12,42,3,'12',35),(13,43,3,'13',35),(14,44,2,'14',37),(15,45,3,'15',28),(16,46,2,'16',39),(17,47,3,'17',20),(18,48,2,'18',29),(19,49,2,'19',16),(20,50,4,'20',32),(21,51,1,'21',35),(22,52,1,'22',18),(23,53,3,'23',31),(24,54,1,'24',32),(25,55,4,'25',13),(26,56,3,'26',26),(27,57,1,'27',24),(28,58,3,'28',23),(29,59,4,'29',28),(30,60,4,'30',10),(31,61,3,'31',11),(32,62,3,'32',35),(33,63,4,'33',20),(34,64,1,'34',27),(35,65,2,'35',11),(36,66,3,'36',36),(37,67,4,'37',3),(38,68,2,'38',8),(39,69,2,'39',30),(40,70,2,'40',33),(41,71,4,'41',33),(42,72,3,'42',14),(43,73,1,'43',11),(44,74,1,'44',6),(45,75,1,'45',3),(46,76,1,'46',38),(47,77,3,'47',29);
+INSERT INTO `plantilla` VALUES (0,1,1,'1',32),(1,2,2,'2',12),(2,3,3,'2',20),(3,4,4,'3',11),(4,5,1,'4',29),(5,6,2,'5',12),(6,7,3,'6',6),(7,8,4,'7',36),(8,9,4,'8',7),(9,10,4,'9',4),(10,11,3,'10',9),(11,12,4,'11',13),(12,13,3,'12',35),(13,14,3,'13',35),(14,15,2,'14',37),(15,16,3,'15',28),(16,17,2,'16',39),(17,18,3,'17',20),(18,19,2,'18',29),(19,20,2,'19',16),(20,21,4,'20',32),(21,22,1,'21',35),(22,23,1,'22',18),(23,24,3,'23',31),(24,25,1,'24',32),(25,26,4,'25',13),(26,27,3,'26',26),(27,28,1,'27',24),(28,29,3,'28',23),(29,30,4,'29',28),(30,31,4,'30',10),(31,32,3,'31',11),(32,33,3,'32',35),(33,34,4,'33',20),(34,35,1,'34',27),(35,36,2,'35',11),(36,37,3,'36',36),(37,38,4,'37',3),(38,39,2,'38',8),(39,40,2,'39',30),(40,41,2,'40',33),(41,42,4,'41',33),(42,43,3,'42',14),(43,44,1,'43',11),(44,45,1,'44',6),(45,46,1,'45',3),(46,47,1,'46',38),(47,48,3,'47',29);
 /*!40000 ALTER TABLE `plantilla` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -207,7 +208,7 @@ CREATE TABLE `posiciones` (
 
 LOCK TABLES `posiciones` WRITE;
 /*!40000 ALTER TABLE `posiciones` DISABLE KEYS */;
-INSERT INTO `posiciones` VALUES (1,'ARQUERO',NULL),(2,'DEFENSA',NULL),(3,'MEDICAMPO',NULL),(4,'DELANTERO',NULL);
+INSERT INTO `posiciones` VALUES (1,'ARQUERO',NULL),(2,'DEFENSA',NULL),(3,'MEDIOCAMPO',NULL),(4,'DELANTERO',NULL);
 /*!40000 ALTER TABLE `posiciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -249,4 +250,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-19 17:45:51
+-- Dump completed on 2024-11-20  0:36:44

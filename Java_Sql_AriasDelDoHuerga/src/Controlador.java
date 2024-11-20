@@ -1,17 +1,16 @@
 import java.time.LocalDate;
+import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class Controlador {
     private AccesoBaseDeDatos acc;
-    private HashSet<Club>clubes;
     private HashSet<Manager>managers;
     private HashSet<Jugador>jugadores;
-    private SistemaFichajes sistem;
 
     public Controlador(String nombreBase, List<String>tablas) {
         AccesoBaseDeDatos acc;
         this.acc = acc=new AccesoBaseDeDatos(nombreBase,tablas);
-        clubes=new HashSet<>();
         managers=new HashSet<>();
     }
 
@@ -26,14 +25,14 @@ public class Controlador {
         for (HashMap<String,Object>columna:resultadosLista.values()){
                 Club c =new Club((Integer) columna.get("idEquipoFutbol"),(String) columna.get("Nombre"));
                 listado.add(c);
-                this.clubes.add(c);
         }
         return listado;
     }
     public LocalDate fecha(Object objFecha){
-        String[] fech=((String)objFecha).split("-");
-        List<String>listdate=Arrays.asList(fech);
-        return LocalDate.of((Integer.parseInt(listdate.get(0))),Integer.parseInt(listdate.get(1)),Integer.parseInt(listdate.get(2)));
+       return  ((Date)objFecha).toLocalDate();
+    }
+    public LocalDateTime fechaTiempo(Object objFecha){
+        return ((LocalDateTime) objFecha);
     }
     public HashMap<String,HashSet<Persona>> instanciarManagersJugadores(HashSet<Club> clubes){
         HashMap<String,HashSet<Persona>> instaciados=new HashMap<>();
@@ -44,9 +43,10 @@ public class Controlador {
         for(HashMap<String,Object>columna:resultadoLista.values()){
                 if(((Integer)columna.get("Manager")) ==1){
                     int id= acc.obtenerId("Managers","idPersona",columna.get("idPersona"));
-                   Manager m= new Manager(id,(String) columna.get("Nombre"),(String) columna.get("Apellid|o"),(Integer) columna.get("DNI"),fecha(columna.get("FechaNacimiento")));
+                    LocalDate fecha=fecha(columna.get("FechaNacimiento"));
+                   Manager m= new Manager(id,(String) columna.get("Nombre"),(String) columna.get("Apellido"),(Integer) columna.get("DNI"),fecha);
                    listadoManagers.add(m);
-                   /* HashMap<Integer,HashMap<String,Object>>especifico=new HashMap<>();
+                    HashMap<Integer,HashMap<String,Object>>especifico=new HashMap<>();
                     especifico=acc.ListaEspecifica("Relacion","Managers_idManagers",Integer.toString(id));
                     for(HashMap<String,Object>coloEspecifica:especifico.values()){
                         for(Club c:clubes){
@@ -58,7 +58,7 @@ public class Controlador {
                                 }
                             }
                         }
-                    }*/
+                    }
                 } else if ((Integer) columna.get("Manager")==0) {
                     HashMap<String,Object>valoresRestantes=acc.selectValores("Jugadores","Representante,Salario","idPersona2",columna.get("idPersona"));
                     Manager representante=new Manager();
@@ -74,8 +74,9 @@ public class Controlador {
                             b.agregarJugador(j);
                         }
                     }
-                    Object ident=acc.obtenerDatoEspecifico("plantilla","idJugador","Posiciones_idPosiciones",columna.get("idJugador"));
-                    String posc=(String) acc.obtenerDatoEspecifico("Posicion","idPosiciones","Descripcion",ident);
+                    Object idJug=acc.obtenerDatoEspecifico("Jugadores","idPersona2","IdJugadores",columna.get("idPersona"));
+                    Object ident=acc.obtenerDatoEspecifico("Plantilla","idJugador","Posiciones_idPosiciones",idJug);
+                    String posc=(String) acc.obtenerDatoEspecifico("Posiciones","idPosiciones","Descripcion",ident);
                     if(posc.toUpperCase().equals(Posiciones.DELANTERO.name())){
                         j.setPosicion(Posiciones.DELANTERO);
                     } else if (posc.toUpperCase().equals(Posiciones.MEDIOCAMPO.name())) {
@@ -92,34 +93,60 @@ public class Controlador {
         instaciados.put("Jugadores",listadoJugadores);
         return instaciados;
         }
-        public void instanciarFichajes(){
+        public HashSet<Fichaje> instanciarFichajes(HashSet<Club>clubes){
+            HashSet<Fichaje>fichajes=new HashSet<>();
             HashMap<Integer,HashMap<String,Object>>resultadosLista=new HashMap<>();
             resultadosLista=acc.Lista("Fichaje");
             for(HashMap<String,Object>columna:resultadosLista.values()){
                 Object idPer=acc.obtenerDatoEspecifico("Jugadores","IdJugadores","idPersona2",columna.get("IdJugadores"));
                 int dni=(Integer) acc.obtenerDatoEspecifico("Persona","idPersona","DNI",idPer);
                 Jugador j=new Jugador();
-                for (Jugador w:jugadores){
-                    if(w.getDNI()==dni){
-                        j=w;
-                    }
-                }
-                Club b=new Club();
                 for(Club c:clubes){
-                    if (c.getIdClub()==((Integer)columna.get("idEquipoFutbol"))){
-                        b=c;
+                    for (Jugador w:c.getPlantilla()){
+                        if(w.getDNI()==dni){
+                            j=w;
+                        }
                     }
                 }
-                EstadoFichaje n=null;
-                if(((String)columna.get("EstadoDelFichaje")).toUpperCase().equals(EstadoFichaje.RECHAZADO.name())){
-                    n=EstadoFichaje.RECHAZADO;
-                }else if(((String)columna.get("EstadoDelFichaje")).toUpperCase().equals(EstadoFichaje.CONFIRMADO.name())){
-                    n=EstadoFichaje.CONFIRMADO;
-                }
-                Fichaje f=new Fichaje((Integer)columna.get("idFichaje"),j,b,fecha(columna.get("FechaFichaje")),n);
-                sistem.agregarFichaje(f);
+                    Club b=new Club();
+                    for(Club c:clubes){
+                        if (c.getIdClub()==((Integer)columna.get("idEquipoFutbol"))){
+                            b=c;
+                        }
+                    }
+                    EstadoFichaje n=null;
+                    if(((String)columna.get("EstadoDelFichaje")).toUpperCase().equals(EstadoFichaje.RECHAZADO.name())){
+                        n=EstadoFichaje.RECHAZADO;
+                    }else if(((String)columna.get("EstadoDelFichaje")).toUpperCase().equals(EstadoFichaje.CONFIRMADO.name())){
+                        n=EstadoFichaje.CONFIRMADO;
+                    }
+                Fichaje f=new Fichaje((Integer)columna.get("idFichaje"),j,b,fechaTiempo(columna.get("FechaFichaje")),n);
+                fichajes.add(f);
+            }
+            return fichajes;
+        }
+    public void modFichajes(HashSet<Fichaje>rechazados){
+        for (Fichaje f:rechazados){
+            int caso=validacion(f);
+            switch (caso){
+                case 1:
+                    //cambiar de jugador o cambiar la posicion del mismo
+                break;
+                case 2:
+                    //Cambiar de manager al jugador
+                break;
             }
         }
+    }
+    public int validacion(Fichaje fich){
+        int caso=0;
+        if(fich.getEquipoFichado().ListadoPorPosicion().get(fich.getJugadorFichado().getPosicion()).size()>fich.getJugadorFichado().getPosicion().getCapMax()){
+            caso=1;
+        } else if (fich.getEquipoFichado().getRelacionManagers().get(fich.getJugadorFichado().getRepresentante()).equals(TipoRelacion.PROHIBIDA)) {
+            caso=2;
+        }
+        return caso;
+    }
 
     }
 
