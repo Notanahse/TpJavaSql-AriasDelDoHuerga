@@ -86,7 +86,7 @@ public class Controlador {
                             jogador.setPosicion(Posiciones.DELANTERO);
                         } else if (posc.toUpperCase().equals(Posiciones.MEDIOCAMPO.name())) {
                             jogador.setPosicion(Posiciones.MEDIOCAMPO);
-                        } else if (posc.toUpperCase().equals(Posiciones.DEFENSA)) {
+                        } else if (posc.toUpperCase().equals(Posiciones.DEFENSA.name())) {
                             jogador.setPosicion(Posiciones.DEFENSA);
                         } else if (posc.toUpperCase().equals(Posiciones.ARQUERO.name())) {
                             jogador.setPosicion(Posiciones.ARQUERO);
@@ -203,10 +203,16 @@ public class Controlador {
     public void modFichajes(HashSet<Fichaje>rechazados){
         for (Fichaje f:rechazados){
             int caso=validacion(f);
+            Fichaje viejoF=new Fichaje();
+            viejoF=f;
             while(caso>0){
             switch (caso){
                 case 1:
-                    f.getJugadorFichado().setPosicion(cambio(f.getJugadorFichado().getPosicion()));
+                    Posiciones posc=cambio(f.getJugadorFichado().getPosicion());
+                    f.getJugadorFichado().setPosicion(posc);
+                    Object idPosc=acc.obtenerDatoEspecifico("posiciones","Descripcion","idPosciciones",posc.name());
+                    Object idJugador=acc.obtenerDatoEspecifico("fichaje","idFichaje","IdJugadores",f.getIdFichaje());
+                    acc.actualizarDatos("plantilla","Posiciones_idPosiciones",idPosc,"idJugador",idJugador);
                     caso=validacion(f);
                 break;
                 case 2:
@@ -214,19 +220,24 @@ public class Controlador {
                     for (Manager mana:listados){
                         if(caso!=0){
                             f.getJugadorFichado().setRepresentante(mana);
+                            Object dni=acc.obtenerDatoEspecifico("persona","DNI","idPersona",f.getJugadorFichado().getDNI());
+                            Object idPlayer=acc.obtenerDatoEspecifico("jugadores","idPersona2","IdJugadores",dni);
+                            acc.actualizarDatos("jugadores","Representante",mana.getId(),"IdJugadores",idPlayer);
                         }
                         caso=validacion(f);
                       }
                     }
                 break;
+            }if(caso==0 && viejoF.equals(f)){
+                acc.actualizarDatos("fichaje","EstadoDelFichaje","'confirmado'","idFichaje",f.getIdFichaje());
             }
-            }
+        }
         }
     public int validacion(Fichaje fich){
         int caso=0;
-        if(fich.getEquipoFichado().ListadoPorPosicion().get(fich.getJugadorFichado().getPosicion()).size()>fich.getJugadorFichado().getPosicion().getCapMax()){
+        if(fich.getEquipoFichado().ListadoPorPosicion().get(fich.getJugadorFichado().getPosicion())!=null &&fich.getEquipoFichado().ListadoPorPosicion().get(fich.getJugadorFichado().getPosicion()).size()>fich.getJugadorFichado().getPosicion().getCapMax()){
             caso=1;
-        } else if (fich.getEquipoFichado().getRelacionManagers().get(fich.getJugadorFichado().getRepresentante()).equals(TipoRelacion.PROHIBIDA)) {
+        } else if(fich.getEquipoFichado().getRelacionManagers().get(fich.getJugadorFichado().getRepresentante())!=null && fich.getEquipoFichado().getRelacionManagers().get(fich.getJugadorFichado().getRepresentante()).equals(TipoRelacion.PROHIBIDA)) {
             caso=2;
         }
         return caso;

@@ -69,18 +69,20 @@ public class SistemaFichajes {
     }
     public HashSet<Fichaje>maxCapSobrepasada(){
         HashSet<Fichaje>fichajesPasadosCap=new HashSet<>();
-        for(Fichaje f:Fichajes){
-            if(f.getEquipoFichado().ListadoPorPosicion().get(f.getJugadorFichado().getPosicion()).size()>f.getJugadorFichado().getPosicion().getCapMax()){
-                f.setEstado(EstadoFichaje.RECHAZADO);
-                fichajesPasadosCap.add(f);
+        for(Fichaje f:Fichajes) {
+            if (f.getEquipoFichado().ListadoPorPosicion() != null && f.getEquipoFichado().ListadoPorPosicion().get(f.getJugadorFichado().getPosicion())!=null) {
+                if (f.getEquipoFichado().ListadoPorPosicion().get(f.getJugadorFichado().getPosicion()).size() > f.getJugadorFichado().getPosicion().getCapMax()) {
+                    f.setEstado(EstadoFichaje.RECHAZADO);
+                    fichajesPasadosCap.add(f);
 
+                }
             }
         }
         return fichajesPasadosCap;
     }
     public Club menorcantidadManagers(){
         Club menorCantMan=new Club();
-        int contMin=0;
+        int contMin=10000;
         for(Club club:Equipos){
             int cont=0;
             for(Manager man:club.getRelacionManagers().keySet()){
@@ -120,6 +122,15 @@ public class SistemaFichajes {
             }
         }
         return masJoven;
+    }
+    public HashMap<Club,HashSet<Manager>>masDeDos(){
+        HashMap<Club,HashSet<Manager>> masDeDos=new HashMap<>();
+        HashSet<Manager>listado=new HashSet<>();
+        for(Club club:Equipos){
+            listado=club.masDeDosJugadores();
+            masDeDos.put(club,listado);
+        }
+        return masDeDos;
     }
     public HashSet<Manager>managersNoCorrespondientes(){
         HashSet<Manager>noCorrespondientes=new HashSet<>();

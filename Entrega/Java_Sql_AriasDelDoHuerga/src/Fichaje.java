@@ -16,6 +16,9 @@ public class Fichaje {
         this.estado = estado;
     }
 
+    public Fichaje() {
+    }
+
     public int getIdFichaje() {
         return idFichaje;
     }

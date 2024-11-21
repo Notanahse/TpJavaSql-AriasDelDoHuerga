@@ -1,0 +1,9 @@
+Complejidad Logaritmica:
+a-O(n) no encontramos una opción con menor complejidad.
+b-O(n)
+c-O(n)
+d-O(n)
+e-O(m * n) m siendo el numero de managers y n el numero de jugadores
+f-O(p*e*j) p:Num Posiciones, e:Num Equipos, j:Num Jugadores
+g-O(c*m) c:Num Clubes, m:Num Managers
+h-O(n

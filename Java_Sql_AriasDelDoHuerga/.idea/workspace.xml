@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e7e730a3-474f-4a9e-8b20-8fbef2e770f5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_8_0_33.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_Sql_AriasDelDoHuerga.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysql-connector-j-8.0.33.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/.idea/out.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Sql_AriasDelDoHuerga/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Sql_AriasDelDoHuerga/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Sql_AriasDelDoHuerga/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Sql_AriasDelDoHuerga/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Sql_AriasDelDoHuerga/AccesoBaseDeDatos.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Sql_AriasDelDoHuerga/Club.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Sql_AriasDelDoHuerga/Controlador.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Sql_AriasDelDoHuerga/EstadoFichaje.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Sql_AriasDelDoHuerga/Fichaje.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Sql_AriasDelDoHuerga/Java_Sql_AriasDelDoHuerga.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Sql_AriasDelDoHuerga/Jugador.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Sql_AriasDelDoHuerga/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Sql_AriasDelDoHuerga/Manager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Sql_AriasDelDoHuerga/Persona.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Sql_AriasDelDoHuerga/Posiciones.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Sql_AriasDelDoHuerga/SistemaFichajes.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Sql_AriasDelDoHuerga/TipoRelacion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Sql_AriasDelDoHuerga/out/production/Java_Sql_AriasDelDoHuerga/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Sql_AriasDelDoHuerga/out/production/Java_Sql_AriasDelDoHuerga/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Sql_AriasDelDoHuerga/out/production/Java_Sql_AriasDelDoHuerga/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Sql_AriasDelDoHuerga/out/production/Java_Sql_AriasDelDoHuerga/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Sql_AriasDelDoHuerga/out/production/Java_Sql_AriasDelDoHuerga/Java_Sql_AriasDelDoHuerga.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AccesoBaseDeDatos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Club.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controlador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EstadoFichaje.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Fichaje.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Java_Sql_AriasDelDoHuerga.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Jugador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Manager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persona.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Posiciones.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SistemaFichajes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TipoRelacion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Java_Sql_AriasDelDoHuerga/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Java_Sql_AriasDelDoHuerga/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Java_Sql_AriasDelDoHuerga/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Java_Sql_AriasDelDoHuerga/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Java_Sql_AriasDelDoHuerga/AccesoBaseDeDatos.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Java_Sql_AriasDelDoHuerga/Club.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Java_Sql_AriasDelDoHuerga/Controlador.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Java_Sql_AriasDelDoHuerga/Java_Sql_AriasDelDoHuerga.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Java_Sql_AriasDelDoHuerga/Jugador.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Java_Sql_AriasDelDoHuerga/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Java_Sql_AriasDelDoHuerga/Manager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Java_Sql_AriasDelDoHuerga/Persona.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PolipasesDump.sql" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2p5BewfXuq3Utu5bF8bOj0KKGXk" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/juanc/Documents/Nueva carpeta/sdadsadas/Nueva carpeta/Java_Sql_AriasDelDoHuerga",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e7e730a3-474f-4a9e-8b20-8fbef2e770f5" name="Changes" comment="" />
+      <created>1732046156621</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1732046156621</updated>
+      <workItem from="1732046156847" duration="2896000" />
+      <workItem from="1732049108787" duration="51000" />
+      <workItem from="1732050008776" duration="3723000" />
+      <workItem from="1732057548305" duration="620000" />
+      <workItem from="1732137796212" duration="4000" />
+      <workItem from="1732137851792" duration="16611000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Controlador.java</url>
+          <line>204</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
