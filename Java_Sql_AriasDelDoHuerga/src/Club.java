@@ -75,7 +75,7 @@ public class Club {
     public HashSet<Manager>managersNoCorrespondientes(){
         HashSet<Manager>noCorrespondientes=new HashSet<>();
         for(Jugador j:Plantilla){
-            if(relacionManagers.get(j.getRepresentante()).equals(TipoRelacion.PROHIBIDA)){
+            if(relacionManagers.get(j.getRepresentante())!=null && relacionManagers.get(j.getRepresentante()).equals(TipoRelacion.PROHIBIDA)){
                 noCorrespondientes.add(j.getRepresentante());
             }
         }

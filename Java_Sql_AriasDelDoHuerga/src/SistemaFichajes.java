@@ -51,11 +51,13 @@ public class SistemaFichajes {
         HashSet<Jugador>mejoresPagos=new HashSet<>();
        for(Posiciones posc:Posiciones.values()){
            Jugador mejorPagado=new Jugador();
-           for(Club club:Equipos){
-               for(Jugador J:club.ListadoPorPosicion().get(posc)){
+           for(Club equipo:Equipos){
+               if(equipo.ListadoPorPosicion()!=null && equipo.ListadoPorPosicion().get(posc)!=null){
+               for(Jugador J:equipo.ListadoPorPosicion().get(posc)){
                    if(J.getSalario()>mejorPagado.getSalario()){
                        mejorPagado=J;
                    }
+                }
                }
            }
            mejoresPagos.add(mejorPagado);
