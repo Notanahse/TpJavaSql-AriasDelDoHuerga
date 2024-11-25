@@ -70,7 +70,10 @@ public class Controlador {
                             representante=(Manager) mana;
                         }
                     }
-                    Jugador jogador=new Jugador((String) columna.get("Nombre"),(String)columna.get("Apellido"),(Integer) columna.get("DNI"),representante,(Integer) valoresRestantes.get("Salario"),fecha(columna.get("FechaNacimiento")));
+                    Object idPersona=acc.obtenerDatoEspecifico("persona","DNI","idPersona",columna.get("DNI"));
+                    Object idJugador=acc.obtenerDatoEspecifico("jugadores","idPersona2","IdJugadores",idPersona);
+                    int dorsal=(Integer) acc.obtenerDatoEspecifico("plantilla","idJugador","NumeroDorsal",idJugador);
+                    Jugador jogador=new Jugador((String) columna.get("Nombre"),(String)columna.get("Apellido"),(Integer) columna.get("DNI"),representante,(Integer) valoresRestantes.get("Salario"),fecha(columna.get("FechaNacimiento")),dorsal);
                     Object getidPer=acc.obtenerDatoEspecifico("jugadores","idPersona2","IdJugadores",columna.get("idPersona"));
                     int clubID=(Integer) acc.obtenerDatoEspecifico("plantilla","idJugador","idEquipoFutbol",getidPer);
                     for(Club club:clubes){
@@ -100,7 +103,7 @@ public class Controlador {
         instaciados.put("Jugadores",listadoJugadores);
         return instaciados;
         }
-        public HashSet<Fichaje> instanciarFichajes(HashSet<Club>clubes){
+        public HashSet<Fichaje> instanciarFichajes(HashSet<Club>clubes,HashSet<Jugador>jugadores){
             HashSet<Fichaje>fichajes=new HashSet<>();
             HashMap<Integer,HashMap<String,Object>>resultadosLista=new HashMap<>();
             resultadosLista=acc.Lista("fichaje");
@@ -108,14 +111,13 @@ public class Controlador {
                 Object idPer=acc.obtenerDatoEspecifico("jugadores","IdJugadores","idPersona2",columna.get("IdJugadores"));
                 int dni=(Integer) acc.obtenerDatoEspecifico("persona","idPersona","DNI",idPer);
                 Jugador j=new Jugador();
-                for(Club c:clubes){
-                    for (Jugador w:c.getPlantilla()){
+                    for (Jugador w:jugadores){
                         if(w.getDNI()==dni){
                             j=w;
                         }
                     }
-                }
                     Club b=new Club();
+
                     for(Club c:clubes){
                         if (c.getIdClub()==((Integer)columna.get("idEquipoFutbol"))){
                             b=c;

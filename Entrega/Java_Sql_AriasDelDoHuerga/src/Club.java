@@ -72,11 +72,11 @@ public class Club {
         Listado.put(Posiciones.ARQUERO,Arqueros);
         return Listado;
     }
-    public HashSet<Manager>managersNoCorrespondientes(){
-        HashSet<Manager>noCorrespondientes=new HashSet<>();
+    public HashSet<Jugador>managersNoCorrespondientes(){
+        HashSet<Jugador>noCorrespondientes=new HashSet<>();
         for(Jugador j:Plantilla){
             if(relacionManagers.get(j.getRepresentante())!=null && relacionManagers.get(j.getRepresentante()).equals(TipoRelacion.PROHIBIDA)){
-                noCorrespondientes.add(j.getRepresentante());
+                noCorrespondientes.add(j);
             }
         }
         return noCorrespondientes;

@@ -1,5 +1,5 @@
 public enum Posiciones {
-    ARQUERO(3),DEFENSA(10),MEDIOCAMPO(12),DELANTERO(6);
+    ARQUERO(2),DEFENSA(4),MEDIOCAMPO(5),DELANTERO(3);
     private int capMax;
 
     Posiciones(int capMax) {

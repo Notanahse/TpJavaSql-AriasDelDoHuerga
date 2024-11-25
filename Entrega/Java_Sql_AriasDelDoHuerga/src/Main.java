@@ -24,16 +24,19 @@ public class Main {
         masJoven=sis.fichajeMasJoven();
         System.out.println(masJoven.getNombre()+" "+masJoven.getApellido()+", "+ ((masJoven.getNacimiento()).getYear()) + " de edad");
 
-        HashSet<Fichaje>sobrePasanCapacidad;
+        HashSet<Jugador>sobrePasanCapacidad;
         sobrePasanCapacidad=sis.maxCapSobrepasada();
-        for (Fichaje fich:sobrePasanCapacidad){
-            System.out.println("ID: "+fich.getIdFichaje()+", Jugador: "+fich.getJugadorFichado().getNombre()+" "+ fich.getJugadorFichado().getApellido()+"Equipo: "+ fich.getEquipoFichado().getNombre());
+        for (Jugador fich:sobrePasanCapacidad){
+            for(Fichaje fichajes: sis.getFichajes()){
+            if(fich==fichajes.getJugadorFichado()){
+            System.out.println("Jugador: "+fich.getNombre()+" "+ fich.getApellido()+"Equipo: "+ fichajes.getEquipoFichado().getNombre()+" Posicion: "+fich.getPosicion().name());
+            }
         }
 
-        HashSet<Manager>listadoNocorrespondientes=new HashSet<>();
-        listadoNocorrespondientes=sis.managersNoCorrespondientes();
-        for (Manager manager:listadoNocorrespondientes){
-            System.out.println("Nombre: "+ manager.getNombre()+" "+ manager.getApellido());
+        HashSet<Jugador>listadoNocorrespondientes=new HashSet<>();
+        listadoNocorrespondientes=sis.jugadoresNoCorrespondientes();
+        for (Jugador player:listadoNocorrespondientes){
+            System.out.println("Nombre: "+ player.getNombre()+" "+ player.getApellido());
         }
 
         HashSet<Jugador>mejoresPagosPosc=new HashSet<>();
@@ -49,4 +52,5 @@ public class Main {
         sis.modFichajes();
 
     }
+}
 }

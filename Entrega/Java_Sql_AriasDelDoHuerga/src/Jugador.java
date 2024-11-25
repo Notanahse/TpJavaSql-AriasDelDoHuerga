@@ -4,11 +4,13 @@ public class Jugador extends Persona{
     private Manager representante;
     private int Salario;
     private Posiciones posicion;
+    private int dorsal;
 
-    public Jugador(String nombre, String apellido, int DNI, Manager representante, int salario, LocalDate nacimiento) {
+    public Jugador(String nombre, String apellido, int DNI, Manager representante, int salario, LocalDate nacimiento,int dorsal) {
         super(nombre, apellido, DNI,nacimiento);
         this.representante = representante;
         Salario = salario;
+        this.dorsal = dorsal;
     }
 
     public Jugador() {
