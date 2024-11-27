@@ -5,6 +5,7 @@ public class Jugador extends Persona{
     private int Salario;
     private Posiciones posicion;
     private int dorsal;
+    private Club clubPerteneciente;
 
     public Jugador(String nombre, String apellido, int DNI, Manager representante, int salario, LocalDate nacimiento,int dorsal) {
         super(nombre, apellido, DNI,nacimiento);
@@ -15,6 +16,22 @@ public class Jugador extends Persona{
 
     public Jugador() {
 
+    }
+
+    public Club getClubPerteneciente() {
+        return clubPerteneciente;
+    }
+
+    public void setClubPerteneciente(Club clubPerteneciente) {
+        this.clubPerteneciente = clubPerteneciente;
+    }
+
+    public int getDorsal() {
+        return dorsal;
+    }
+
+    public void setDorsal(int dorsal) {
+        this.dorsal = dorsal;
     }
 
     public void setPosicion(Posiciones posicion) {

@@ -53,8 +53,10 @@ public class Controlador {
                             if(c.getIdClub()==(Integer)coloEspecifica.get("EquipoFutbol_idEquipoFutbol")){
                                 if((((String)coloEspecifica. get("Relacion")).toUpperCase()).equals(TipoRelacion.ASOCIADOS.name())){
                                     c.agregarManager(manager,TipoRelacion.ASOCIADOS);
+                                    manager.agregarclubesRelacionados(c,TipoRelacion.ASOCIADOS);
                                 }else if((((String)coloEspecifica.get("Relacion")).toUpperCase()).equals(TipoRelacion.PROHIBIDA.name())){
                                     c.agregarManager(manager,TipoRelacion.PROHIBIDA);
+                                    manager.agregarclubesRelacionados(c,TipoRelacion.PROHIBIDA);
                                 }
                             }
                         }
@@ -74,11 +76,13 @@ public class Controlador {
                     Object idJugador=acc.obtenerDatoEspecifico("jugadores","idPersona2","IdJugadores",idPersona);
                     int dorsal=(Integer) acc.obtenerDatoEspecifico("plantilla","idJugador","NumeroDorsal",idJugador);
                     Jugador jogador=new Jugador((String) columna.get("Nombre"),(String)columna.get("Apellido"),(Integer) columna.get("DNI"),representante,(Integer) valoresRestantes.get("Salario"),fecha(columna.get("FechaNacimiento")),dorsal);
+                    representante.agregarJugador(jogador);
                     Object getidPer=acc.obtenerDatoEspecifico("jugadores","idPersona2","IdJugadores",columna.get("idPersona"));
                     int clubID=(Integer) acc.obtenerDatoEspecifico("plantilla","idJugador","idEquipoFutbol",getidPer);
                     for(Club club:clubes){
                         if(club.getIdClub()==clubID){
                             club.agregarJugador(jogador);
+                            jogador.setClubPerteneciente(club);
                         }
                     }
                     Object idJug=acc.obtenerDatoEspecifico("jugadores","idPersona2","IdJugadores",columna.get("idPersona"));

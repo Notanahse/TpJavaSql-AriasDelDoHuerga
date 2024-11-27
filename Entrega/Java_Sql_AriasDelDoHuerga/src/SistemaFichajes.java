@@ -56,18 +56,29 @@ public class SistemaFichajes {
     public HashSet<Jugador>mejoresPagos(){
         HashSet<Jugador>mejoresPagos=new HashSet<>();
         for(Jugador player:Jugadores){
-            if(mejoresPagos.size()>0){
-                int cont=0;
-                for (Jugador jugador:mejoresPagos){
-                    if(jugador.getPosicion().equals(player.getPosicion())){
-                        cont++;
+            int cont=0;
+            int soloUno=0;
+            Jugador remover=new Jugador();
+            boolean encontrado=false;
+            for(Jugador jugador:mejoresPagos){
+                if(player.getPosicion().equals(jugador.getPosicion())){
+                    if(player.getSalario()>jugador.getSalario()){
+                        encontrado=true;
+                        remover=jugador;
                     }
-                }
-                if(cont==0){
-                    mejoresPagos.add(player);
+                } else if (player.getPosicion()!=jugador.getPosicion()) {
+                    cont++;
                 }
             }
+            if(cont==mejoresPagos.size()){
+                mejoresPagos.add(player);
+            }
+            if(encontrado){
+                mejoresPagos.add(player);
+            }
+            mejoresPagos.remove(remover);
         }
+
         return mejoresPagos;
     }
     public void conectar(String user,String password){
@@ -130,18 +141,19 @@ public class SistemaFichajes {
         }
         return masJoven;
     }
-    public HashMap<Club,HashSet<Manager>>masDeDos(){
+    public HashSet<Manager>masDeDos(){
         HashSet<Manager>masDeDosJugadores=new HashSet<>();
         for(Manager man:Managers){
-
+            HashSet<Club>registrados=new HashSet<>();
+            for(Jugador player:man.getJugadorRepresentados()){
+                if(!registrados.contains(player.getClubPerteneciente())){
+                    registrados.add(player.getClubPerteneciente());
+                }else{
+                    masDeDosJugadores.add(man);
+                }
+            }
         }
-        /*HashMap<Club,HashSet<Manager>> masDeDos=new HashMap<>();
-        HashSet<Manager>listado=new HashSet<>();
-        for(Club club:Equipos){
-            listado=club.masDeDosJugadores();
-            masDeDos.put(club,listado);
-        }
-        return masDeDos;*/
+        return masDeDosJugadores;
     }
     public HashSet<Jugador>jugadoresNoCorrespondientes(){
         HashSet<Jugador>noCorrespondientes=new HashSet<>();

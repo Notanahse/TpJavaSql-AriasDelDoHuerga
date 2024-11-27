@@ -89,22 +89,4 @@ public class Club {
     public void setPlantilla(HashSet<Jugador> plantilla) {
         Plantilla = plantilla;
     }
-
-    public HashSet<Manager>masDeDosJugadores(){
-        HashSet<Manager>managers=new HashSet<>();
-        for(Manager m:relacionManagers.keySet()){
-            int cont=0;
-            if(relacionManagers.get(m).equals(TipoRelacion.ASOCIADOS)){
-                for(Jugador j:Plantilla){
-                    if(j.getRepresentante().equals(m)){
-                        cont++;
-                    }
-                }
-            }
-            if(cont>1){
-                managers.add(m);
-            }
-        }
-        return managers;
-    }
 }
