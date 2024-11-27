@@ -30,6 +30,7 @@ public class Main {
             for(Fichaje fichajes: sis.getFichajes()){
             if(fich==fichajes.getJugadorFichado()){
             System.out.println("Jugador: "+fich.getNombre()+" "+ fich.getApellido()+"Equipo: "+ fichajes.getEquipoFichado().getNombre()+" Posicion: "+fich.getPosicion().name());
+                }
             }
         }
 
@@ -53,4 +54,4 @@ public class Main {
 
     }
 }
-}
+
