@@ -245,7 +245,6 @@ public class AccesoBaseDeDatos {
     public void actualizarDatos(String nombreTabla, String nombreCampo,Object valorNuevo,String columna,Object condicion){
 
         String consulta= "Update "+nombreTabla+" set " + nombreCampo+ "=" +valorNuevo + " where " + columna + "=" +condicion+";";
-        System.out.println(consulta);
 
         try{
             PreparedStatement sentenciaSQL=conexion.prepareStatement(consulta);

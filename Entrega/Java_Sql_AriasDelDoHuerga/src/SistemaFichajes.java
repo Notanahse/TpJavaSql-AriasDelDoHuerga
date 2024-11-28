@@ -116,6 +116,7 @@ public class SistemaFichajes {
         return menorCantMan;
     }
     public void modFichajes(){
+        Boolean modifico=false;
         for (Club club:Equipos){
             int cont=0;
             HashSet<Fichaje>rechazados=new HashSet<>();
@@ -127,7 +128,13 @@ public class SistemaFichajes {
             }
             if(cont>3){
                 control.modFichajes(rechazados);
+                modifico=true;
             }
+        }
+        if(!modifico){
+            System.out.println("No existen algun Equipo de futbol que tenga 3 o mas fichajes rechazados");
+        }else{
+            System.out.println("Se hicieron cambios dentro del sistema");
         }
     }
     public Jugador fichajeMasJoven(){

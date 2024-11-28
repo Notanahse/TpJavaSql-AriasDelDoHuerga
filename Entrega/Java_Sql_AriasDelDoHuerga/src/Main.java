@@ -66,6 +66,7 @@ public class Main {
         menorCantidadMan=sis.menorcantidadManagers();
         System.out.println("Nombre Club: "+ menorCantidadMan.getNombre());
 
+        System.out.println("Demostracion del punto 3H (Puede modificar como no los fichajes, dejo archivo aparte con las queries necesarias para comprobar)");
         sis.modFichajes();
 
     }
