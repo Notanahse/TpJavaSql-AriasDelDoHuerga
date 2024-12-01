@@ -1,9 +1,9 @@
 Complejidad Logaritmica:
-a-O(n) no encontramos una opción con menor complejidad.
-b-O(n)
-c-O(n)
-d-O(n)
-e-O(m * n) m siendo el numero de managers y n el numero de jugadores
-f-O(p*e*j) p:Num Posiciones, e:Num Equipos, j:Num Jugadores
-g-O(c*m) c:Num Clubes, m:Num Managers
-h-O(n
+a-Complejidad de O(n), siendo n el numero de jugadores
+b-Complejidad O(n), siendo n el numero total de fichajes con el estado de confirmado.
+c-Complejidad de O(n), siendo n el numero de fichajes.
+d-Complejidad de O(n*m), siendo n es el numero de clubes y m es el numero maximo de jugadores en un solo club. Esto se da ya que al instanciar pueden llegar a tener mayor cantidad de jugadores dentro de algunos clubes.
+e-Complejidad de O(n*m), ocurre una situacion similar como en el punto anterior, en este caso n es el numero de managers y m seria el maximo numero de jugadores representados por un solo manager
+f-Complejidad de O(n), siendo n el numero de jugadores dentro del sistema.
+g-Complejidad de O(n*m), siendo n el numero de clubes y m el numero promedio de managers por club.
+h-Complejidad de O(n*m*k), siendo n el numero de clubes, m el numero promedio de fichajes de cadad club y k representa el numero promedio de iteraciones necesaria para modificar un fichaje rechazado. 

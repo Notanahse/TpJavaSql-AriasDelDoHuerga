@@ -54,32 +54,15 @@ public class SistemaFichajes {
         this.Fichajes=control.instanciarFichajes(this.Equipos,this.Jugadores);
     }
     public HashSet<Jugador>mejoresPagos(){
-        HashSet<Jugador>mejoresPagos=new HashSet<>();
-        for(Jugador player:Jugadores){
-            int cont=0;
-            int soloUno=0;
-            Jugador remover=new Jugador();
-            boolean encontrado=false;
-            for(Jugador jugador:mejoresPagos){
-                if(player.getPosicion().equals(jugador.getPosicion())){
-                    if(player.getSalario()>jugador.getSalario()){
-                        encontrado=true;
-                        remover=jugador;
-                    }
-                } else if (player.getPosicion()!=jugador.getPosicion()) {
-                    cont++;
-                }
-            }
-            if(cont==mejoresPagos.size()){
-                mejoresPagos.add(player);
-            }
-            if(encontrado){
-                mejoresPagos.add(player);
-            }
-            mejoresPagos.remove(remover);
-        }
+      HashMap<Posiciones,Jugador>mejoresPorPosicion=new HashMap<>();
+      for(Jugador player:Jugadores){
+          Jugador mejorEnPosicion=mejoresPorPosicion.get(player.getPosicion());
+          if(mejorEnPosicion==null||player.getSalario()>mejorEnPosicion.getSalario()){
+              mejoresPorPosicion.put(player.getPosicion(),player);
+          }
+      }
 
-        return mejoresPagos;
+        return new HashSet<>(mejoresPorPosicion.values());
     }
     public void conectar(String user,String password){
         control.conectar(user, password);
